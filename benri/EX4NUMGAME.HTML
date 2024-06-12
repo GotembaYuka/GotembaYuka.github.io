@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="icon" href="https://yuuhaland.github.io/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="Description" content="😊: ニコチャンが　かんがえた
+０～９９までの　すうじを　あててください" />
+  <meta name="theme-color" content="#42ce6c" />
+  <meta property="og:description" content="😊: ニコチャンが　かんがえた
+０～９９までの　すうじを　あててください" />
+  <meta property="og:site_name" content="ゆうはくおりてぃー" />
+  <meta property="og:title" content="EX4NUMGAME.PRG" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>PRG:EX4NUMGAME</title>
+</head>
+<body>
+  ┏━━━━━━━┓<br>
+  ┃かずあてゲーム┃<br>
+  ┗━━━━━━━┛<br>
+  😊: ニコチャンが　かんがえた<br>
+  ０～９９までの　すうじを　あててください<br>
+  <pre id="console_panel"></pre>
+  <div class="mobilepanelpadding" id="mobile_panel_padding"></div>
+  <div class="mobilepanel" id="mobile_panel">
+    <input type="button" class="mobilebutton" value="1" onclick="keypress_ivent({key:'1'})">
+    <input type="button" class="mobilebutton" value="2" onclick="keypress_ivent({key:'2'})">
+    <input type="button" class="mobilebutton" value="3" onclick="keypress_ivent({key:'3'})"><br>
+    <input type="button" class="mobilebutton" value="4" onclick="keypress_ivent({key:'4'})">
+    <input type="button" class="mobilebutton" value="5" onclick="keypress_ivent({key:'5'})">
+    <input type="button" class="mobilebutton" value="6" onclick="keypress_ivent({key:'6'})"><br>
+    <input type="button" class="mobilebutton" value="7" onclick="keypress_ivent({key:'7'})">
+    <input type="button" class="mobilebutton" value="8" onclick="keypress_ivent({key:'8'})">
+    <input type="button" class="mobilebutton" value="9" onclick="keypress_ivent({key:'9'})"><br>
+    <input type="button" class="mobilebutton" value="←" onclick="keypress_ivent({key:'Backspace'})">
+    <input type="button" class="mobilebutton" value="0" onclick="keypress_ivent({key:'0'})">
+    <input type="button" class="mobilebutton" value="↲" onclick="keypress_ivent({key:'Enter'})"><br>
+  </div>
+</body>
+
+<style>
+  html,body {
+    color-scheme: dark;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    touch-action: pan-y;
+  }
+
+  pre {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+
+  div.mobilepanel {
+    display: none;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #140d25;
+    padding-top: 10px;
+  }
+
+  div.mobilepanelpadding {
+    display: none;
+    height: 210px;
+  }
+
+  input.mobilebutton {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 4px;
+    font-size: 20px;
+    background-color: #333333;
+    border: solid 2px #9b9b9b;
+    color: white;
+  }
+</style>
+
+<script>
+  const console_panel = document.getElementById("console_panel")
+  const mobile_panel = document.getElementById("mobile_panel")
+  const mobile_panel_padding = document.getElementById("mobile_panel_padding")
+
+  let input_number = ""
+  let random_number = "0"
+  let seikai = false
+  let console_log = [ "０～９９までの　すうじは？ _" ]
+
+  console_panel.textContent = console_log.sort().join('\n')
+
+  random_number = Math.floor(Math.random() * 99).toString()
+
+  if (/Mobi|Android|Nintendo/i.test(navigator.userAgent)) {
+    mobile_panel.style.display = "block"
+    mobile_panel_padding.style.display = "block"
+    }
+  document.addEventListener('keydown', keypress_ivent)
+
+  function keypress_ivent(e) {
+    if (seikai) return false
+
+    if (e.key === "Backspace") {
+      input_number = input_number.slice( 0, -1 )
+      console_log[console_log.length - 1] = `０～９９までの　すうじは？ ${input_number}${input_number.length <= 10 ? "_" : ""}`
+      console_panel.textContent = console_log.join('\n')
+      window.scrollTo(0, document.body.scrollHeight)
+
+
+    } else if (e.key === "Enter") {
+      console_log[console_log.length - 1] = console_log[console_log.length - 1].replace("_","")
+      if (input_number === random_number) {
+        console_log[console_log.length] = `━━━━━━━━━━━━━━━━`
+        console_log[console_log.length] = `😊: あたり！！！！`
+        console_log[console_log.length] = `PUSH F5 KEY`
+        seikai = true
+        console_panel.textContent = console_log.join('\n')
+        window.scrollTo(0, document.body.scrollHeight)
+
+
+      } else {
+        let i = Number(input_number)
+        let r = Number(random_number)
+
+        if (i < r) {
+          console_log[console_log.length] = `😊: ＨＩＮＴ（ちいさいよ）`
+        } else {
+          console_log[console_log.length] = `😊: ＨＩＮＴ（おおきいです）`
+        }
+          console_log[console_log.length] = ""
+          console_log[console_log.length] = `０～９９までの　すうじは？ _ `
+          input_number = ""
+          console_log[console_log.length - 1] = `０～９９までの　すうじは？ ${input_number}${input_number.length <= 10 ? "_" : ""}`
+          console_panel.textContent = console_log.join('\n')
+          window.scrollTo(0, document.body.scrollHeight)
+      }
+
+
+    } else if (!isNaN(Number(e.key))  && !(e.key === " ") && (input_number.length <= 10)) {
+        input_number = input_number + e.key
+         console_log[console_log.length - 1] = `０～９９までの　すうじは？ ${input_number}${input_number.length <= 10 ? "_" : ""}`
+        console_panel.textContent = console_log.join('\n')
+        window.scrollTo(0, document.body.scrollHeight)
+    }
+    return false
+  }
+
+</script>
+</html>

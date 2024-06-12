@@ -1,0 +1,114 @@
+body {
+  font-family: 'arial', sans-serif;
+  width: 1200px;
+  max-width: 100%;
+  margin: auto;
+  font-size: 17px;
+  background-color: #f2ffcf;
+  background-image: linear-gradient(#f3fca3 50%, transparent 50%);
+  background-size: 10px 10px;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: #e0e0e0;
+  align-items: center;
+}
+
+a.headertext {
+  margin-left: 10px;
+  color: black;
+}
+
+div.main {
+  background-color: #ffffff;
+  border-left: double 5px #4ec4d3;
+  border-bottom: double 5px #4ec4d3;
+  border-right: double 5px #4ec4d3;
+}
+
+div.maincontent {
+  padding: 10px;
+}
+
+div.banner {
+  background: #f3ffb2 url(https://yuuhaland.github.io/textures/banner.png) no-repeat center / auto auto;
+  background-origin: border-box;
+  height: 300px;
+  padding-top: 10px;
+  padding-left: 20px;
+  text-align: center;
+}
+
+div.a404 {
+  background: #42ce6c url(https://yuuhaland.github.io/textures/notfound404.png) no-repeat center / auto auto;
+  background-origin: border-box;
+  height: 300px;
+  padding-top: 10px;
+  padding-left: 20px;
+  text-align: center;
+}
+
+div.pack_flame {
+  background-color: #ebebeb;
+  padding: 10px;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+div.text_content {
+  padding-left: 10px;
+}
+
+span.pack_name {
+  font-size: 130%;
+}
+
+a {
+  color: #0000ee;
+}
+
+a.anda-kesu {
+  text-decoration: none;
+}
+
+div.indexlink {
+  width: calc(100% - 5px);
+  padding: 6px 0 6px 6px;
+  margin-bottom: 5px;
+  border: 2px solid #005713;
+  background-color: #e0ffea;
+  color: black;
+  transition: 0.3s;
+}
+
+div.indexlink:hover {
+  border: 2px solid #005713;
+  background-color: #bddfc8;
+  color: black;
+}
+
+h2 {
+  background: #f4f4f4;
+  border-left: solid 6px #5bb7ae;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+  padding: 7px;
+  font-weight: bold;
+}
+
+h3 {
+  background-color: #f4f4f4 ;
+  border-bottom: 3px dotted #5bb7ae;
+  border-left: 3px dotted #5bb7ae;
+  padding: 4px;
+  padding-left: 6px;
+  text-align: left;
+}
+
+
+::selection {
+  background-color: #cbe3fa;
+  color:black;
+}

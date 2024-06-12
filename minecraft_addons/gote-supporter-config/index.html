@@ -1,0 +1,213 @@
+<html lang="ja">
+
+<head>
+	<title>Gote-Supporter Config ジェネレーター - 優夢色</title>
+	<link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="icon" href="https://yuuhaland.github.io/favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="Description" content="Gote-SupporterのConfigを生成できます。" />
+  <meta name="theme-color" content="#42ce6c" />
+  <meta property="og:description" content="Gote-SupporterのConfigを生成できます。" />
+  <meta property="og:site_name" content="ゆうはくおりてぃー" />
+  <meta property="og:title" content="Gote-Supporter Config ジェネレーター - 優夢色" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+</head>
+
+<script src="./jszip.min.js"></script>
+<script src="./file/manifest.json.js"></script>
+<script src="./file/pack_icon.png.js"></script>
+
+<body>
+	<script type="text/javascript" src="../../header.js"></script>
+	<div id="main_content">
+		<div style="height: 45px;"></div>
+		<script type="text/javascript" src="../../title.js"></script>
+		<div class="contenten">
+			<div class="pack_flame">
+				<img src="https://github.com/YuuhaLand/Gote-Supporter/blob/main/pack_icon.png?raw=true" witdh=80 height=80>
+				<div class="text_content">
+					<span class="pack_name">Gote-Supporter</span><br>
+					マイクラを快適に便利に楽しめるように設計されたUIリソースパックです!
+				</div>
+			</div>
+      <h2>
+        Gote-Supporter Config Generator
+      </h2>
+      <p>
+        このツールではGote-Supporter Configパックを作ることが出来ます！！
+      </p>
+      <p>
+        Gote-Supporter Configについて、詳しくはコチラをご覧ください！<br>
+        <a href="https://github.com/YuuhaLand/Gote-Supporter/wiki/Config(Japanese)" target="_blank">https://github.com/YuuhaLand/Gote-Supporter/wiki/Config(Japanese)</a>
+      </p>
+      <p>
+        (ホントは英語対応化とかしたかったけどそもそも言語切替とかどうやるんDa？？？ ってなったので出来ません())<br>
+        Sorry, but you'll have to use your browser's translate function for English and other languages.
+      </p>
+      <h2>テンプレート</h2>
+      <div style="text-align: center;">
+        <input type="button" class="button" value="デフォルト" onclick="temprete('default')">
+        <input type="button" class="button" value="Gote-Supporter Lite" onclick="temprete('lite')">
+      </div>
+      <h2>オプション</h2>
+      <label><input type="checkbox" id="hud_compass">HUDにコンパスと時計を表示</label><br>
+      <label><input type="checkbox" id="start_screen_gamertag">スタート画面にゲーマータグとアイコンを表示</label><br>
+      <label><input type="checkbox" id="show_gote_version">スタート画面にGote-Supporterの情報を表示</label><br>
+      <label><input type="checkbox" id="show_build_number">スタート画面にマイクラのビルド番号を表示</label><br>
+      <label><input type="checkbox" id="inventory_screen_statusbar">インベントリ画面などにHPや空腹度などを表示</label><br>
+      <label><input type="checkbox" id="chest_screen_paperdoll">チェスト画面などに自分の人形を表示</label><br>
+      <label><input type="checkbox" id="show_hotbar_navigator">HUDのホットバーナビゲーターの表示(タッチ)</label><br>
+      <label><input type="checkbox" id="show_hotbar_number">ホットバーに数字を表示</label><br>
+      <label><input type="checkbox" id="play_screen_doubleclick">プレイ画面のワールドのボタンをダブルクリックしないと入れないようにする</label><br>
+      <label><input type="checkbox" id="show_recoverycompass">HUDのコンパスにリカバリーコンパスを追加(ベータ!)</label><br>
+      <p class="serek">
+        HUDのF1/F8ボタンの位置(タッチ)<br>
+        <select id="f1_f8_location">
+          <option id="top">top - 上のチャットボタンなどと並べて表示 (デフォルト)</option>
+          <option id="right">right - 右下に表示</option>
+          <option id="none">none - 非表示にする</option>
+        </select>
+      </p>
+      <p class="serek">
+        チャット画面のTabキーの配置<br>
+        <select id="chat_tab_button_type">
+          <option id="vertical">vertical - 右下に並べて配置</option>
+          <option id="horizontal">horizontal - 下のチャット設定ボタンなどと並べて表示</option>
+          <option id="none">none - 非表示にする</option>
+        </select>
+      </p>
+      <p class="serek">
+        HUDでプレイヤーリストを表示するキー<br>
+        <select id="playerlist_key">
+          <option id="tab">tab - Tabキー</option>
+          <option id="f10">f10 - F10キー</option>
+        </select>
+      </p>
+      <h2>生成する</h2>
+      <p>
+        mcpack化してダウンロード出来ます。<br>
+        ※ダウンロードしたmcpackをインポートする前に既存のConfigは削除してください！
+      </p>
+      <div style="text-align: center;">
+        <input type="button" class="button" value="mcpackとしてダウンロード" onclick="mcpack()">
+      </div>
+      <p>
+        また、「_global_variables.json」だけをコピーすることも出来ます
+      </p>
+      <div style="text-align: center;">
+        <input type="button" class="button" value="_global_variables.json を生成" onclick="mcpack('json')">
+      </div>
+      <p>
+        ⇩ できた_global_variables.json ⇩
+        <textarea id="global_variables" readonly></textarea>
+      </p>
+
+			<script type="text/javascript" src="../../footer.js"></script>
+		</div>
+	</div>
+	<div style="height: 35px;"></div>
+</body>
+
+<style>
+  label {
+    font-size: large;
+    user-select: none;
+  }
+
+  select {
+    font-size: large;
+  }
+
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 300px;
+    font-family: 'MS Mincho';
+    font-size: 14px;
+  }
+
+  .button {
+    font-size: large;
+    width: 80%;
+    margin-bottom: 3px;
+  }
+
+  .serek {
+    overflow-x: auto;
+  }
+</style>
+
+<script>
+  function temprete(a="default") {
+    if (a === "default") {
+      document.getElementById("hud_compass").checked = true
+      document.getElementById("start_screen_gamertag").checked = true
+      document.getElementById("show_gote_version").checked = true
+      document.getElementById("show_build_number").checked = false
+      document.getElementById("inventory_screen_statusbar").checked = true
+      document.getElementById("chest_screen_paperdoll").checked = true
+      document.getElementById("show_hotbar_navigator").checked = false
+      document.getElementById("show_hotbar_number").checked = false
+      document.getElementById("play_screen_doubleclick").checked = true
+      document.getElementById("show_recoverycompass").checked = false
+      document.getElementById("f1_f8_location").selectedIndex = 0
+      document.getElementById("chat_tab_button_type").selectedIndex = 0
+      document.getElementById("playerlist_key").selectedIndex = 0
+      return
+    }
+
+    if (a === "lite") {
+      document.getElementById("hud_compass").checked = false
+      document.getElementById("start_screen_gamertag").checked = false
+      document.getElementById("show_gote_version").checked = false
+      document.getElementById("show_build_number").checked = false
+      document.getElementById("inventory_screen_statusbar").checked = false
+      document.getElementById("chest_screen_paperdoll").checked = false
+      document.getElementById("show_hotbar_navigator").checked = false
+      document.getElementById("show_hotbar_number").checked = false
+      document.getElementById("play_screen_doubleclick").checked = false
+      document.getElementById("show_recoverycompass").checked = false
+      document.getElementById("f1_f8_location").selectedIndex = 0
+      document.getElementById("chat_tab_button_type").selectedIndex = 1
+      document.getElementById("playerlist_key").selectedIndex = 0
+      return
+    }
+  }
+  function mcpack(daunr="mcpack") {
+
+    let global_variables = {
+      "$hud_compass": document.getElementById("hud_compass").checked,
+      "$start_screen_gamertag": document.getElementById("start_screen_gamertag").checked,
+      "$show_gote_version": document.getElementById("show_gote_version").checked,
+      "$show_build_number": document.getElementById("show_build_number").checked,
+      "$inventory_screen_statusbar": document.getElementById("inventory_screen_statusbar").checked,
+      "$chest_screen_paperdoll": document.getElementById("chest_screen_paperdoll").checked,
+      "$show_hotbar_navigator": document.getElementById("show_hotbar_navigator").checked,
+      "$show_hotbar_number": document.getElementById("show_hotbar_number").checked,
+      "$play_screen_doubleclick": document.getElementById("play_screen_doubleclick").checked,
+      "$show_recoverycompass": document.getElementById("show_recoverycompass").checked,
+      "$f1_f8_location": document.getElementById("f1_f8_location").selectedOptions[0].id,
+      "$chat_tab_button_type": document.getElementById("chat_tab_button_type").selectedOptions[0].id,
+      "$playerlist_key": document.getElementById("playerlist_key").selectedOptions[0].id
+    }
+
+    if (daunr === "json") {
+      document.getElementById("global_variables").value = JSON.stringify(global_variables, null, 2)
+    } else {
+      let zip = new JSZip()
+      zip.file("manifest.json", manifestjson)
+      zip.file("pack_icon.png", pack_iconpng, {base64: true})
+      zip.file("ui/_global_variables.json", JSON.stringify(global_variables, null, 2))
+      
+      zip.generateAsync({type:"blob"}).then(function(content) {
+  	    let link = document.createElement('a')
+  	    link.download = "Gote-Supporter_Config.mcpack"
+  	    link.href = URL.createObjectURL(content)
+  	    link.click()
+  	    URL.revokeObjectURL(link.href)
+      })
+    }
+  }
+</script>
+</html>
