@@ -1,0 +1,121 @@
+<html lang="ja">
+
+<head>
+  <title>今年の進捗状況</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="icon" href="https://yuuhaland.github.io/favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="Description" content="今年はどのくらい完了したかどうかを見ることができます" />
+  <meta name="theme-color" content="#f3fca3" />
+  <meta property="og:description" content="今年はどのくらい完了したかどうかを見ることができます" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <meta property="og:title" content="今年の進捗状況" />
+  <meta property="og:image" content="https://yuuhaland.github.io/textures/app_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <style>
+    div.progless_bar_frame {
+      width: 100%;
+      height: 20px;
+      border: 1px solid black;
+    }
+    div.progless_bar {
+      height: 20px;
+      background-color: #3da3df;
+    }
+    span#percent {
+      color: red;
+      font-weight: bold;
+      font-size: 36px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <header><img width="48" height="48" src="https://yuuhaland.github.io/textures/app_icon.png" alt="ゆうはのサイトのアイコン"><a class="headertext" href="https://yuuhaland.github.io/">ゆうはのサイト</a></header>
+    <div class="maincontent">
+      <h2>今年の進捗状況</h2>
+
+      <p>
+        現在日時: <span id="nowTime"></span>
+      </p>
+      <p style="text-align: center;">
+        <span id="thisYear"></span>年は <span id="percent">0%</span> 完了しました
+      </p>
+      <div class="progless_bar_frame">
+        <div class="progless_bar" id="progress" style="width: 0%;"></div>
+      </div>
+      <hr>
+      <div style="text-align: center;">ゆうはのサイト ©YuuhaLand</div>
+    </div>
+  </div>
+  <div style="height: 35px;"></div>
+</body>
+
+<script>
+  // 命令を定義する
+  const utils = {
+    setText: (elem, value) => {
+      document.getElementById(elem).innerText = value;
+      return;
+    },
+    setDisplay: (elem, value) => {
+      document.getElementById(elem).style.display = value;
+      return
+    }
+  }
+
+  // 分かりやすく表示するバーを取得
+  const progress = document.getElementById("progress");
+
+  // 曜日の定義
+  const days = [ "日", "月", "火", "水", "木", "金", "土" ];
+  
+  const loop = () => {
+    // 現在の日時を取得する
+    const nowDate = new Date();
+    const now = {
+      year: nowDate.getFullYear(),
+      month: nowDate.getMonth() + 1,
+      date: nowDate.getDate(),
+      day: nowDate.getDay(),
+      hour: nowDate.getHours(),
+      min: nowDate.getMinutes(),
+      sec: nowDate.getSeconds()
+    }
+
+    // 今年の元旦を取得
+    const kotosi = new Date(now.year, 0, 1, 0, 0, 0, 0);
+
+    // 来年の元旦を取得
+    const rainen = new Date(now.year + 1, 0, 1, 0, 0, 0, 0);
+
+    // 現在日時を表示する
+    utils.setText("nowTime", `${now.year}年${now.month}月${now.date}日 (${days[now.day]}曜日) ${now.hour}時${now.min < 10 ? "0" : ""}${now.min}分${now.sec < 10 ? "0" : ""}${now.sec}秒`);
+
+    // 新年になった後6時までは100%と表示する
+    if (now.month === 1 && now.date === 1 && now.hour < 6) {
+      utils.setText("thisYear", now.year - 1);
+      utils.setText("percent", "100%");
+      progress.style.width = "100%";
+      return;
+    }
+    utils.setText("thisYear", now.year.toString());
+
+    // 今年の進捗状況を計算する
+    const sintyoku = Math.floor(((nowDate.getTime() - kotosi.getTime()) / (rainen.getTime() - kotosi.getTime())) * 100).toString() + "%";
+
+    // 今年の進捗状況を表示する
+    utils.setText("percent", sintyoku);
+
+    // 今年の進捗状況を分かりやすく見せる
+    progress.style.width = sintyoku;
+  }
+
+  // 0.5秒ごとに実行する
+  window.setInterval(loop, 500);
+  loop();
+</script>
+
+</html>
