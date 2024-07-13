@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>画像をマイクラのスキンに変換</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="icon" href="https://yuuhaland.github.io/favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="Description" content="画像をマイクラのスキンに変換するツールをブラウザでできるようになりました" />
+  <meta name="theme-color" content="#f3fca3" />
+  <meta property="og:description" content="画像をマイクラのスキンに変換するツールをブラウザでできるようになりました" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <meta property="og:title" content="画像をマイクラのスキンに変換" />
+  <meta property="og:image" content="https://yuuhaland.github.io/textures/app_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <style>
+    canvas.mcpreview {
+      margin: 110px 0 110px 110px;
+      transform: scale(4);
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <header><img width="48" height="48" src="https://yuuhaland.github.io/textures/app_icon.png" alt="ゆうはのサイトのアイコン"><a class="headertext" href="https://yuuhaland.github.io/">ゆうはのサイト</a></header>
+    <div class="maincontent">
+      <h2>画像をマイクラのスキンに変換</h2>
+      <p>
+        規格は128x クラシックスキン(ワイドスキン)です。<br>Java版ではつかえません
+      </p>
+      <input type="file" id="fileInput" accept="image/*"><br>
+      <p>
+        2Dプレビュー<br>
+        <canvas id="mcpreview_128" class="mcpreview" width="32" height="64" style="border:1px solid #000000;"></canvas>
+        <canvas id="mcpreview_128_invert" class="mcpreview" style="display: none;" width="32" height="64" style="border:1px solid #000000;"></canvas>
+      </p>
+      <hr>
+      <p>
+        完成したスキン↓<br>
+        <canvas id="mcskin_128" width="128" height="128" style="border:1px solid #000000;"></canvas>
+      </p>
+      <p>
+        <input type="button" id="download" value="ダウンロード" onclick="downloadskin()" disabled>
+      </p>
+      <p>
+        ※iOSの方はSafariを使わないとダウンロードできないかも...。
+      </p>
+      <hr>
+      <div style="text-align: center;">ゆうはのサイト ©YuuhaLand</div>
+    </div>
+  </div>
+  <div style="height: 35px;"></div>
+</body>
+
+<script>
+  document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
+  function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) {
+      return;
+    }
+  
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.getElementById('mcpreview_128');
+        const ctx = canvas.getContext('2d');
+        const canvasInvert = document.getElementById('mcpreview_128_invert');
+        const ctxInvert = canvasInvert.getContext('2d');
+        const destinationCanvas = document.getElementById('mcskin_128');
+        const octx = destinationCanvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#fff'; // 赤色
+        ctx.fillRect(0, 0, 8, 16); 
+        ctx.fillRect(24, 0, 8, 16); 
+        ctx.fillRect(0, 40, 8, 24); 
+        ctx.fillRect(24, 40, 8, 24);
+  
+        ctxInvert.translate(canvas.width, 0);
+        ctxInvert.scale(-1, 1);
+        ctxInvert.drawImage(canvas, 0, 0, canvas.width, canvas.height);
+  
+        octx.clearRect(0, 0, destinationCanvas.width, destinationCanvas.height);
+        octx.putImageData(ctx.getImageData(8, 0, 16, 16), 16, 16); //頭 表
+        octx.putImageData(ctx.getImageData(8, 0, 16, 16), 48, 16); //頭 裏
+  
+        octx.putImageData(ctx.getImageData(8, 16, 16, 24), 40, 40); //胴体 表
+        octx.putImageData(ctx.getImageData(8, 16, 16, 24), 64, 40); //胴体 裏
+  
+        octx.putImageData(ctx.getImageData(0, 16, 8, 24), 88, 40); //右腕 表
+        octx.putImageData(ctx.getImageData(24, 16, 8, 24), 104, 40); //右腕 裏
+  
+        octx.putImageData(ctx.getImageData(24, 16, 8, 24), 72, 104); //左腕 表
+        octx.putImageData(ctx.getImageData(0, 16, 8, 24), 88, 104); //左腕 裏
+  
+        octx.putImageData(ctx.getImageData(8, 40, 8, 24), 8, 40); //右脚 表
+        octx.putImageData(ctx.getImageData(16, 40, 8, 24), 24, 40); //右脚 裏
+  
+        octx.putImageData(ctx.getImageData(16, 40, 8, 24), 40, 104); //左脚 表
+        octx.putImageData(ctx.getImageData(8, 40, 8, 24), 56, 104); //左脚 裏
+  
+  
+        octx.imageSmoothingEnabled = false;
+        /////head/////
+        octx.drawImage(canvas, 23,0,   1,8*2, 16*2,8*2, 4*2,8*2);
+        octx.drawImage(canvas, 4*2,0,  1,8*2, 20*2,8*2, 4*2,8*2);
+  
+        octx.drawImage(canvas, 23,0,   1,8*2, 0,8*2,   4*2,8*2);
+        octx.drawImage(canvas, 4*2,0,  1,8*2, 4*2,8*2, 4*2,8*2);
+  
+        octx.drawImage(canvas, 4*2,0, 8*2,1,   8*2,4*2, 8*2,4*2);
+        octx.drawImage(canvasInvert, 4*2,0, 8*2,1,   8*2,0, 8*2,4*2);
+  
+        octx.drawImage(canvas, 4*2,15, 8*2,1,   16*2,4*2, 8*2,4*2);
+        octx.drawImage(canvasInvert, 4*2,15, 8*2,1,   16*2,0, 8*2,4*2);
+  
+        /////body/////
+        octx.drawImage(canvas, 4*2,8*2, 8*2,1,   20*2,18*2, 8*2,2*2);
+        octx.drawImage(canvasInvert, 4*2,8*2, 8*2,1,   20*2,16*2, 8*2,2*2);
+  
+        octx.drawImage(canvas, 4*2,39, 8*2,1,   28*2,18*2, 8*2,2*2);
+        octx.drawImage(canvasInvert, 4*2,39, 8*2,1,   28*2,16*2, 8*2,2*2);
+  
+        octx.drawImage(canvas, 4*2,8*2, 1,12*2,   18*2,20*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 4*2,8*2, 1,12*2,   16*2,20*2, 2*2,12*2);
+  
+        octx.drawImage(canvas, 23,8*2, 1,12*2,   28*2,20*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 23,8*2, 1,12*2,   30*2,20*2, 2*2,12*2);
+  
+        /////left_arm/////
+        octx.drawImage(canvas, 0,8*2, 4*2,1,   44*2,18*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 0,8*2, 4*2,1,   44*2,16*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 0,39, 4*2,1,  48*2,18*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 0,39, 4*2,1,  48*2,16*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 0,8*2, 1,12*2,  42*2,20*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 0,8*2, 1,12*2,  40*2,20*2, 2*2,12*2);
+  
+        octx.drawImage(canvas, 3*2,8*2, 1,12*2,  48*2,20*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 3*2,8*2, 1,12*2,  50*2,20*2, 2*2,12*2);
+  
+        /////right_arm/////
+        octx.drawImage(canvas, 12*2,8*2, 4*2,1,   36*2,50*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 12*2,8*2, 4*2,1,   36*2,48*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 12*2,39, 4*2,1,  40*2,50*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 12*2,39, 4*2,1,  40*2,48*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 12*2,8*2, 1,12*2,  34*2,52*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 12*2,8*2, 1,12*2,  32*2,52*2, 2*2,12*2);
+  
+        octx.drawImage(canvas, 31,8*2, 1,12*2,  40*2,52*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 31,8*2, 1,12*2,  42*2,52*2, 2*2,12*2);
+  
+        /////left_leg/////
+        octx.drawImage(canvas, 4*2,20*2, 4*2,1,   4*2,18*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 4*2,20*2, 4*2,1,   4*2,16*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 4*2,63, 4*2,1,  8*2,18*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 4*2,63, 4*2,1,  8*2,16*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 4*2,20*2, 1,12*2,  2*2,20*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 4*2,20*2, 1,12*2,  0,20*2, 2*2,12*2);
+  
+        octx.drawImage(canvas, 15,20*2, 1,12*2,  8*2,20*2,  2*2,12*2);
+        octx.drawImage(canvasInvert, 15,20*2, 1,12*2,  10*2,20*2, 2*2,12*2);
+  
+        /////right_leg/////
+        octx.drawImage(canvas, 8*2,20*2, 4*2,1,   20*2,50*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 8*2,20*2, 4*2,1,   20*2,48*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 8*2,63, 4*2,1,     24*2,50*2, 4*2,2*2);
+        octx.drawImage(canvasInvert, 8*2,63, 4*2,1,     24*2,48*2, 4*2,2*2);
+  
+        octx.drawImage(canvas, 8*2,20*2, 1,12*2, 18*2,52*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 8*2,20*2, 1,12*2, 16*2,52*2, 2*2,12*2);
+  
+        octx.drawImage(canvas, 23,20*2, 1,12*2,  24*2,52*2, 2*2,12*2);
+        octx.drawImage(canvasInvert, 23,20*2, 1,12*2,  26*2,52*2, 2*2,12*2);
+  
+        document.getElementById("download").disabled = false;
+      }
+      img.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+  
+  
+  function downloadskin() {
+    const canvas = document.getElementById('mcskin_128');
+    const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+  
+    const link = document.createElement('a');
+    link.download = 'canvas_image.png';
+    link.href = image;
+    link.click();
+  }
+</script>
+
+</html>
