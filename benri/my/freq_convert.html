@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://yuuhaland.github.io/favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="Description" content="音程→周波数" />
+  <meta name="theme-color" content="#f3fca3" />
+  <meta property="og:description" content="音程→周波数" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <meta property="og:title" content="周波数変換" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>周波数変換</title>
+  <style>
+    body {
+      user-select: none;
+      text-align: center;
+    }
+    input[type=range] {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <h2>音程→周波数</h2>
+    <span id="pitch_kekka">音程: 0, 周波数: 1.00</span><br>
+    <input type="range" id="pitch" min="-24" max="24" step="1" value="0.00" oninput="pitchToFreq()">
+  </p>
+  <p>
+    <h2>周波数→音程</h2>
+    <span id="freq_kekka">周波数: 100%, 音程: 0.00</span><br>
+    <input type="range" id="freq" min="0.10" max="12.00" step="0.01" value="1" oninput="freqToPitch()">
+  </p>
+</body>
+
+<script>
+const pitch = document.getElementById("pitch");
+const pitch_kekka = document.getElementById("pitch_kekka");
+
+const freq = document.getElementById("freq");
+const freq_kekka = document.getElementById("freq_kekka");
+function pitchToFreq() {
+  pitch_kekka.innerText = `音程: ${pitch.value > 0 ? "+" : ""}${pitch.value}, 周波数: ${Math.pow(2, pitch.value / 12).toFixed(2)}`;
+}
+
+function freqToPitch() {
+  let keisan = 12 * Math.log2(freq.value);
+  freq_kekka.innerText = `周波数: ${Math.round(freq.value*100)}%, 音程: ${keisan > 0 ? "+" : ""}${keisan.toFixed(2)}`;
+}
+</script>
+</html>
