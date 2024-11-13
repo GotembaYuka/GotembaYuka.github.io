@@ -3,15 +3,14 @@
 
 <head>
   <title>画像をマイクラのスキンに変換</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
-  <link rel="icon" href="https://yuuhaland.github.io/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="icon" href="/favicon.ico">
   <meta charset="utf-8" />
   <meta name="Description" content="画像をマイクラのスキンに変換するツールをブラウザでできるようになりました" />
   <meta name="theme-color" content="#f3fca3" />
   <meta property="og:description" content="画像をマイクラのスキンに変換するツールをブラウザでできるようになりました" />
   <meta property="og:site_name" content="©YuuhaLand" />
   <meta property="og:title" content="画像をマイクラのスキンに変換" />
-  <meta property="og:image" content="https://yuuhaland.github.io/textures/app_icon.png"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow,noarchive" />
   <style>
@@ -20,18 +19,21 @@
       transform: scale(4);
       image-rendering: pixelated;
     }
+    canvas#mcskin_128 {
+      image-rendering: pixelated;
+    }
   </style>
 </head>
 
 <body>
   <div class="main">
-    <header><img width="48" height="48" src="https://yuuhaland.github.io/textures/app_icon.png" alt="ゆうはのサイトのアイコン"><a class="headertext" href="https://yuuhaland.github.io/">ゆうはのサイト</a></header>
+    <header><img width="48" height="48" src="/textures/app_icon.png" alt="ゆうはのサイトのアイコン"><a class="headertext" href="/">ゆうはのサイト</a></header>
     <div class="maincontent">
       <h2>画像をマイクラのスキンに変換</h2>
       <p>
         規格は128x クラシックスキン(ワイドスキン)です。<br>Java版ではつかえません
       </p>
-      <input type="file" id="fileInput" accept="image/*"><br>
+      <input type="file" id="fileInput" accept="image/*"><br>変換は端末上で行うので画像がどこかにアップロードされることはないです。
       <p>
         2Dプレビュー<br>
         <canvas id="mcpreview_128" class="mcpreview" width="32" height="64" style="border:1px solid #000000;"></canvas>
