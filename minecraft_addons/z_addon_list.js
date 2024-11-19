@@ -121,22 +121,6 @@ let adlist = {
       link: "https://github.com/YuuhaLand/screen-effect/releases/latest"
     },
     {
-      name: "UIを薄くするリソースパック",
-      description: "需要無し・くだらないです。",
-      type: ["リソースパック"],
-      junban: 17,
-      icon_url: "https://github.com/YuuhaLand/usui-ui/blob/main/pack_icon.png?raw=true",
-      link: "https://github.com/YuuhaLand/usui-ui/releases/latest"
-    },
-    {
-      name: "World Icon Replacer",
-      description: "ワールドのアイコンを置き換える",
-      type: ["リソースパック"],
-      junban: 18,
-      icon_url: "https://github.com/YuuhaLand/MCBE_WorldIconReplacer/blob/main/pack_icon.png?raw=true",
-      link: "https://github.com/YuuhaLand/MCBE_WorldIconReplacer/releases/latest"
-    },
-    {
       name: "Online Player Count",
       description: "オンラインのプレイヤー数をポーズ画面に表示します！",
       type: ["リソースパック"],
@@ -151,14 +135,6 @@ let adlist = {
       junban: 20,
       icon_url: "https://github.com/YuuhaLand/Tabkey_Playerlist_UI/blob/main/pack_icon.png?raw=true",
       link: "https://github.com/YuuhaLand/Tabkey_Playerlist_UI/releases/latest"
-    },
-    {
-      name: "VSync設定追加",
-      description: "v1.20.30でなぜか追加されなかったVSync(垂直同期)設定を追加します!",
-      type: ["リソースパック"],
-      junban: 21,
-      icon_url: "https://github.com/YuuhaLand/vsync-visible/blob/main/pack_icon.png?raw=true",
-      link: "https://github.com/YuuhaLand/vsync-visible/releases/latest"
     },
     {
       name: "水の音を昔のようにする for v1.20.30",
@@ -183,14 +159,6 @@ let adlist = {
       junban: 24,
       icon_url: "https://github.com/YuuhaLand/camera-sound-player/blob/main/pack_icon.png?raw=true",
       link: "https://github.com/YuuhaLand/camera-sound-player/releases/latest"
-    },
-    {
-      name: "ブルスクアドオン",
-      description: "ブルースクリーン(BSOD)風の画面を表示できるよ",
-      type: ["リソースパック"],
-      junban: 25,
-      icon_url: "https://github.com/YuuhaLand/bluescreen-addon/blob/main/pack_icon.png?raw=true",
-      link: "https://github.com/YuuhaLand/bluescreen-addon/releases/latest"
     },
     {
       name: "UIパフォーマンス改善",
