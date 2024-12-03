@@ -59,6 +59,7 @@
       <label><input type="checkbox" id="show_hotbar_number">ホットバーに数字を表示</label><br>
       <label><input type="checkbox" id="play_screen_doubleclick">プレイ画面のワールドのボタンをダブルクリックしないと入れないようにする</label><br>
       <label><input type="checkbox" id="show_recoverycompass">HUDのコンパスにリカバリーコンパスを追加(ベータ!)</label><br>
+      <label><input type="checkbox" id="show_locked_trade_items">村人が売る予定のアイテムを表示する</label><br>
       <p class="serek">
         HUDのF1/F8ボタンの位置(タッチ)<br>
         <select id="f1_f8_location">
@@ -146,9 +147,10 @@
       document.getElementById("chest_screen_paperdoll").checked = true
       document.getElementById("show_hotbar_navigator").checked = false
       document.getElementById("show_hotbar_number").checked = false
-      document.getElementById("play_screen_doubleclick").checked = true
+      document.getElementById("play_screen_doubleclick").checked = false
       document.getElementById("show_recoverycompass").checked = false
-      document.getElementById("f1_f8_location").selectedIndex = 0
+      document.getElementById("show_locked_trade_items").checked = true
+      document.getElementById("f1_f8_location").selectedIndex = 2
       document.getElementById("chat_tab_button_type").selectedIndex = 0
       document.getElementById("playerlist_key").selectedIndex = 0
       return
@@ -159,13 +161,14 @@
       document.getElementById("start_screen_gamertag").checked = false
       document.getElementById("show_gote_version").checked = false
       document.getElementById("show_build_number").checked = false
-      document.getElementById("inventory_screen_statusbar").checked = false
-      document.getElementById("chest_screen_paperdoll").checked = false
+      document.getElementById("inventory_screen_statusbar").checked = true
+      document.getElementById("chest_screen_paperdoll").checked = true
       document.getElementById("show_hotbar_navigator").checked = false
       document.getElementById("show_hotbar_number").checked = false
       document.getElementById("play_screen_doubleclick").checked = false
       document.getElementById("show_recoverycompass").checked = false
-      document.getElementById("f1_f8_location").selectedIndex = 0
+      document.getElementById("show_locked_trade_items").checked = true
+      document.getElementById("f1_f8_location").selectedIndex = 2
       document.getElementById("chat_tab_button_type").selectedIndex = 1
       document.getElementById("playerlist_key").selectedIndex = 0
       return
@@ -184,6 +187,7 @@
       "$show_hotbar_number": document.getElementById("show_hotbar_number").checked,
       "$play_screen_doubleclick": document.getElementById("play_screen_doubleclick").checked,
       "$show_recoverycompass": document.getElementById("show_recoverycompass").checked,
+      "$show_locked_trade_items": document.getElementById("show_locked_trade_items").checked,
       "$f1_f8_location": document.getElementById("f1_f8_location").selectedOptions[0].id,
       "$chat_tab_button_type": document.getElementById("chat_tab_button_type").selectedOptions[0].id,
       "$playerlist_key": document.getElementById("playerlist_key").selectedOptions[0].id
