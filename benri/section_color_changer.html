@@ -1,0 +1,215 @@
+<html lang="ja">
+
+<head>
+	<title>マイクラ統合版 セクション装飾色変更 </title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="Description" content="Gote-SupporterのConfigを生成できます。" />
+  <meta name="theme-color" content="#f3fca3" />
+  <meta property="og:description" content="Gote-SupporterのConfigを生成できます。" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <meta property="og:title" content="マイクラ統合版 セクション装飾色変更 " />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+</head>
+
+<script src="/jszip.min.js"></script>
+
+<body>
+  <div class="main">
+    <header><img width="48" height="48" src="/textures/app_icon.png" alt="YuuhaLandのサイトのアイコン"><a class="headertext" href="/">YuuhaLandのサイト</a></header>
+    <div class="maincontent">
+      <div class="path">
+        <a href="/">TOP</a> → <a href="/benri/">その他雑貨</a> → マイクラ統合版 セクション装飾色変更
+      </div>
+      <h2>
+        マイクラ統合版 セクション装飾色変更
+      </h2>
+      <p>
+        セクションの装飾の色を簡単に変えれるツールです
+      </p>
+
+      <h3>基本色</h3>
+      <div style="font-family: 'MS Gothic', monospace;">
+        §0: <input type="color" id="0_color_format" value="#000000"><br>
+        §1: <input type="color" id="1_color_format" value="#0000aa"><br>
+        §2: <input type="color" id="2_color_format" value="#00aa00"><br>
+        §3: <input type="color" id="3_color_format" value="#00aaaa"><br>
+        §4: <input type="color" id="4_color_format" value="#aa0000"><br>
+        §5: <input type="color" id="5_color_format" value="#aa00aa"><br>
+        §6: <input type="color" id="6_color_format" value="#ffaa00"><br>
+        §7: <input type="color" id="7_color_format" value="#aaaaaa"><br>
+        §8: <input type="color" id="8_color_format" value="#545454"><br>
+        §9: <input type="color" id="9_color_format" value="#5454ff"><br>
+        §a: <input type="color" id="a_color_format" value="#54ff54"><br>
+        §b: <input type="color" id="b_color_format" value="#54ffff"><br>
+        §c: <input type="color" id="c_color_format" value="#ff5454"><br>
+        §d: <input type="color" id="d_color_format" value="#ff54ff"><br>
+        §e: <input type="color" id="e_color_format" value="#ffff54"><br>
+        §f: <input type="color" id="f_color_format" value="#ffffff"><br>
+        §g: <input type="color" id="g_color_format" value="#ddd605"><br>
+      </div>
+      <h3>アーマートリム色</h3>
+      <div style="font-family: 'MS Gothic', monospace;">
+        §h: <input type="color" id="h_color_format" value="#e2d3d1"><br>
+        §i: <input type="color" id="i_color_format" value="#cec9c9"><br>
+        §j: <input type="color" id="j_color_format" value="#44393a"><br>
+        §m: <input type="color" id="m_color_format" value="#961506"><br>
+        §n: <input type="color" id="n_color_format" value="#b4684d"><br>
+        §p: <input type="color" id="p_color_format" value="#deb02c"><br>
+        §q: <input type="color" id="q_color_format" value="#119f36"><br>
+        §s: <input type="color" id="s_color_format" value="#2cb9a8"><br>
+        §t: <input type="color" id="t_color_format" value="#20487a"><br>
+        §u: <input type="color" id="u_color_format" value="#9a5cc5"><br>
+        §v: <input type="color" id="v_color_format" value="#ea7113"><br>
+      </div>
+      
+      <h2>生成する</h2>
+      <p>
+        mcpack化してダウンロード出来ます。
+      </p>
+      <div style="text-align: center;">
+        <input type="button" class="button" value="mcpackとしてダウンロード" onclick="mcpack()">
+      </div>
+      <p>
+        また、「_global_variables.json」だけをコピーすることも出来ます
+      </p>
+      <div style="text-align: center;">
+        <input type="button" class="button" value="_global_variables.json を生成" onclick="mcpack('json')">
+      </div>
+      <p>
+        ⇩ できた_global_variables.json ⇩
+        <textarea id="global_variables" readonly></textarea>
+      </p>
+      <div style="text-align: center;">YuuhaLandのサイト ©YuuhaLand</div>
+    </div>
+  </div>
+  <div style="height: 35px;"></div>
+</body>
+
+<style>
+  label {
+    font-size: large;
+    user-select: none;
+  }
+
+  select {
+    font-size: large;
+  }
+
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 300px;
+    font-family: 'MS Mincho';
+    font-size: 14px;
+  }
+
+  .button {
+    font-size: large;
+    width: 80%;
+    margin-bottom: 3px;
+  }
+
+  .serek {
+    overflow-x: auto;
+  }
+</style>
+
+<script>
+  function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    })
+  }
+  function jsonuicolor(hex) {
+    // # を取り除く
+    hex = hex.replace(/^#/, '');
+
+    // 3桁の場合は6桁に変換
+    if (hex.length === 3) {
+      hex = hex.split('').map(char => char + char).join('');
+    }
+
+    // R, G, Bの値を取得
+    const r = Math.round((parseInt(hex.substring(0, 2), 16)/255) * 1000) / 1000;
+    const g = Math.round((parseInt(hex.substring(2, 4), 16)/255) * 1000) / 1000;
+    const b = Math.round((parseInt(hex.substring(4, 6), 16)/255) * 1000) / 1000;
+
+    return [r, g, b]; // RGBの配列を返す
+  }
+
+  function mcpack(daunr="mcpack") {
+
+    let global_variables = {
+  // 基本色
+  /* §0 */ "$0_color_format": jsonuicolor(document.getElementById("0_color_format").value),
+  /* §1 */ "$1_color_format": jsonuicolor(document.getElementById("1_color_format").value),
+  /* §2 */ "$2_color_format": jsonuicolor(document.getElementById("2_color_format").value),
+  /* §3 */ "$3_color_format": jsonuicolor(document.getElementById("3_color_format").value),
+  /* §4 */ "$4_color_format": jsonuicolor(document.getElementById("4_color_format").value),
+  /* §5 */ "$5_color_format": jsonuicolor(document.getElementById("5_color_format").value),
+  /* §6 */ "$6_color_format": jsonuicolor(document.getElementById("6_color_format").value),
+  /* §7 */ "$7_color_format": jsonuicolor(document.getElementById("7_color_format").value),
+  /* §8 */ "$8_color_format": jsonuicolor(document.getElementById("8_color_format").value),
+  /* §9 */ "$9_color_format": jsonuicolor(document.getElementById("9_color_format").value),
+  /* §a */ "$a_color_format": jsonuicolor(document.getElementById("a_color_format").value),
+  /* §b */ "$b_color_format": jsonuicolor(document.getElementById("b_color_format").value),
+  /* §c */ "$c_color_format": jsonuicolor(document.getElementById("c_color_format").value),
+  /* §d */ "$d_color_format": jsonuicolor(document.getElementById("d_color_format").value),
+  /* §e */ "$e_color_format": jsonuicolor(document.getElementById("e_color_format").value),
+  /* §f */ "$f_color_format": jsonuicolor(document.getElementById("f_color_format").value),
+  /* §g */ "$coin_color": jsonuicolor(document.getElementById("g_color_format").value),
+
+  // アーマートリム色
+  /* §h */ "$material_quartz_color":jsonuicolor(document.getElementById("h_color_format").value),
+  /* §i */ "$material_iron_color": jsonuicolor(document.getElementById("i_color_format").value),
+  /* §j */ "$material_netherite_color": jsonuicolor(document.getElementById("j_color_format").value),
+  /* §m */ "$material_redstone_color": jsonuicolor(document.getElementById("m_color_format").value),
+  /* §n */ "$material_copper_color": jsonuicolor(document.getElementById("n_color_format").value),
+  /* §p */ "$material_gold_color": jsonuicolor(document.getElementById("p_color_format").value),
+  /* §q */ "$material_emerald_color": jsonuicolor(document.getElementById("q_color_format").value),
+  /* §s */ "$material_diamond_color": jsonuicolor(document.getElementById("s_color_format").value),
+  /* §t */ "$material_lapis_color": jsonuicolor(document.getElementById("t_color_format").value),
+  /* §u */ "$material_amethyst_color": jsonuicolor(document.getElementById("u_color_format").value),
+  /* §v */ "$material_resin_color":jsonuicolor(document.getElementById("v_color_format").value)
+    }
+
+    if (daunr === "json") {
+      document.getElementById("global_variables").value = JSON.stringify(global_variables, null, 2)
+    } else {
+      let zip = new JSZip()
+      const manifestjson = JSON.stringify({
+        format_version: 2,
+        header: {
+          name: "セクション装飾色チェンジャー",
+          description: "セクションの色を変更するリソースパック。\nYuuhaLandのツールで生成",
+          version: [ 1, 0, 0 ],
+          uuid: generateUUID(),
+          min_engine_version: [ 1, 13, 0 ]
+        },
+        modules: [
+          {
+            type: "resources",
+            version: [ 1, 0, 0 ],
+            uuid: generateUUID()
+          }
+        ]
+      }, null, 2)
+      zip.file("manifest.json", manifestjson)
+      zip.file("ui/_global_variables.json", JSON.stringify(global_variables, null, 2))
+      
+      zip.generateAsync({type:"blob"}).then(function(content) {
+  	    let link = document.createElement('a')
+  	    link.download = "sectioncolorchangepack.mcpack"
+  	    link.href = URL.createObjectURL(content)
+  	    link.click()
+  	    URL.revokeObjectURL(link.href)
+      })
+    }
+  }
+</script>
+</html>

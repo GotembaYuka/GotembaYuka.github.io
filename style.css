@@ -33,6 +33,10 @@ div.maincontent {
   padding: 10px;
 }
 
+div.path {
+  margin-bottom: 5px;
+}
+
 div.banner {
   background: #f3ffb2 url(https://yuuhaland.github.io/textures/banner.png) no-repeat center / auto auto;
   background-origin: border-box;
