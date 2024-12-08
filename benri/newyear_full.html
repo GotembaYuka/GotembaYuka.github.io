@@ -10,56 +10,65 @@
   <meta property="og:site_name" content="©YuuhaLand" />
   <meta property="og:title" content="新年まであと..." />
   <meta property="og:image" content="/textures/app_icon.png" />
-  <meta name="robots" content="noindex,nofollow,noarchive" />
+  
 </head>
 
 <style>
+  #countdown_panel, #happynewyear_panel {
+    font-family: 'Yusei Magic', sans-serif;
+    text-align: center;
+  }
+  #countdown_panel {
+    font-size: 60pt;
+  }
+  #happynewyear_panel {
+    font-size: 30pt;
+  }
+  span.red {
+    color: yellow;
+    font-weight: bold;
+  }
   div.main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 100px;
-  color:white
+    color: white;
+  }
+  div.footer {
+    color: darkgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35pt;
+  }
+  div.left {
+    position: fixed;
+    left: 10px;
+    bottom: 10px
+  }
+  div.right {
+    position: fixed;
+    right: 10px;
+    bottom: 10px
   }
 </style>
 
-<body style="background-color: black;text-align: center;transform: scale(3);overflow: hidden;">
+<body style="background-color: black;">
   <div class="main">
-    <script type="text/javascript">
+    <div id="countdown_panel" style="display: none;">
+      <span class="red" id="cd_nextyear"></span>年まであと...<br>
+      <span class="red" id="cd_days"></span>日 <span class="red" id="cd_hour"></span>時間<span class="red" id="cd_min"></span>分<span class="red" id="cd_sec"></span>秒!!
+    </div>
+    <div id="happynewyear_panel" style="display: none;">
+      <span style="color: yellow;font-weight: bold;font-size: 60pt;">🎊 Happy New Year <span id="cu_newyear"></span>!! 🎉</span><br>
+      <span id="cu_days"></span>日 <span id="cu_hour"></span>時間<span id="cu_min"></span>分<span id="cu_sec"></span>秒経過
+    </div>
+  </div>
 
-      let nextyear = 0
-
-      if (location.search.startsWith("?year=")) {
-        nextyear = Number(location.search.replace("?year=", ""))
-        if (isNaN(nextyear)) {
-          let nowtime = new Date()
-          nextyear = nowtime.getFullYear() + 1
-        }
-      } else {
-        let nowtime = new Date()
-        nextyear = nowtime.getFullYear() + 1
-      }
-
-      document.title=`${nextyear}年まであと...`
-
-      var year = nextyear.toString(); var month = "1"; var day = "1"; var hour = "0"; var minute = "0"; var centi = "1";
-      var convert = "0"; var roop = "";
-      var cnt1 = "日 "; var cnt2 = "時間 "; var cnt3 = "分 "; var cnt4 = ".";
-      var baseoffset = "none"; var cuttime = "";
-      var br1 = "1"; var br2 = ""; var br3 = ""; var br4 = "";
-      var com1 = `${nextyear}年まであと...`; var com2 = ""; var com3 = ""; var com4 = "あけおめ!!"; var end = "1";
-      var width = "640"; var height = "160";
-      var font = "arial"; var font2 = "7seg4"; var size = "50"; var t_size = "41"; var l_height = "51"; var t_height = "30"; var bold = "0"; var italic = ""; var line = "";
-      var space = "17px 0px 0px 0px";
-      var align = "2"; var img = "";
-      var color1 = "FFFFFF";var color2 = "00FF00";var color3 = "000000";
-
-    </script>
-    <script type="text/javascript" src="https://countdown.reportitle.com/js/neo1_01.js"></script><a href="https://countdown.reportitle.com/">カウントダウンタイマー</a>
-    <script type="text/javascript" src="https://countdown.reportitle.com/js/neo2.js"></script>
-
+  <div class="footer left">
+    <span style="text-decoration: underline; cursor: pointer;" onclick="location.href=location.href.replace('newyear_full.html','newyear.html')">< Back</span>
+  </div>
+  <div class="footer right">
+    ©YuuhaLand
   </div>
 </body>
 
+
+<script>const full = true;</script>
+<script src="./newyear.js"></script>
 </html>

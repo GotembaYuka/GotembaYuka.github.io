@@ -4,6 +4,9 @@
   <title>新年までのカウントダウン</title>
   <link rel="stylesheet" type="text/css" href="/style.css">
   <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   <meta charset="utf-8" />
   <meta name="Description" content="新年まであと何日何時間何分何秒かを見ることができます!
 また、新年からどのくらい経ったか見ることもできます!" />
@@ -14,7 +17,21 @@
   <meta property="og:title" content="新年までのカウントダウン" />
   <meta property="og:image" content="/textures/app_icon.png"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="robots" content="noindex,nofollow,noarchive" />
+  
+
+  <style>
+    #countdown_panel, #happynewyear_panel {
+      font-family: 'Yusei Magic', sans-serif;
+      text-align: center;
+    }
+    #countdown_panel {
+      font-size: 20pt;
+    }
+    span.red {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,58 +42,31 @@
         <a href="/">TOP</a> → <a href="/benri/">その他雑貨</a> → 新年までのカウントダウン
       </div>
       <h2>新年までのカウントダウン</h2>
-      <p>何年までのカウントダウンを表示しますか?</p>
       <form>
         <input type="number" name="year" id="year" min="1900" value="10" style="width:100%; height:25px;" required>
         <input type="submit" value="適用" style="width:100%; height:30px;">
 
       </form>
 
-      <div style="text-align: center;">
-        <script type="text/javascript">
-
-          let nextyear = 0
-
-          if (location.search.startsWith("?year=")) {
-            nextyear = Number(location.search.replace("?year=", ""))
-            if (isNaN(nextyear)) {
-              let nowtime = new Date()
-              nextyear = nowtime.getFullYear() + 1
-            }
-          } else {
-            let nowtime = new Date()
-            nextyear = nowtime.getFullYear() + 1
-          }
-
-          document.getElementById("year").value = nextyear
-
-
-          var year = nextyear.toString(); var month = "1"; var day = "1"; var hour = "0"; var minute = "0"; var centi = "1";
-          var convert = "0"; var roop = "";
-          var cnt1 = "日"; var cnt2 = "時間"; var cnt3 = "分"; var cnt4 = "秒";
-          var baseoffset = "none"; var cuttime = "";
-          var br1 = "1"; var br2 = ""; var br3 = ""; var br4 = "";
-          var com1 = `${nextyear}年まであと..`; var com2 = ""; var com3 = ""; var com4 = "あけおめーー!!"; var end = "1";
-          var width = "400"; var height = "100";
-          var font = "arial"; var font2 = "0"; var size = "31"; var t_size = "30"; var l_height = "32"; var t_height = "30"; var bold = "1"; var italic = ""; var line = "";
-          var space = "17px 0px 0px 0px";
-          var align = "2"; var img = "";
-          var color1 = "000000"; var color2 = "FF0000"; var color3 = "ffffff";
-
-        </script>
-        <script type="text/javascript" src="https://countdown.reportitle.com/js/neo1_01.js"></script><a
-          href="https://countdown.reportitle.com/">カウントダウンタイマー</a>
-        <script type="text/javascript" src="https://countdown.reportitle.com/js/neo2.js"></script>
-
+      <div id="countdown_panel" style="display: none;">
+        <span class="red" id="cd_nextyear"></span>年まであと...<br>
+        <span class="red" id="cd_days"></span>日 <span class="red" id="cd_hour"></span>時間<span class="red" id="cd_min"></span>分<span class="red" id="cd_sec"></span>秒!!
+      </div>
+      <div id="happynewyear_panel" style="display: none;">
+        <span style="color: red;font-weight: bold;font-size: 20pt;">🎊 Happy New Year <span id="cu_newyear"></span>!! 🎉</span><br>
+        <span id="cu_days"></span>日 <span id="cu_hour"></span>時間<span id="cu_min"></span>分<span id="cu_sec"></span>秒経過
       </div>
 
-      <p>使用ツール: <a href="https://countdown.reportitle.com/" target="_blank">カウントダウンタイマーNEO</a></p>
-
-      <p><span style="text-decoration: underline; cursor: pointer; color: #0000ee;" onclick="location.href=location.href.replace('newyear.html','newyear_full.html')">全画面で表示する。</span><br>※1080pのディスプレイで見ることをおすすめします。 それ以外なら適宜ズーム調整してね。</p>
+      <p>
+        <span style="text-decoration: underline; cursor: pointer; color: #0000ee;" onclick="location.href=location.href.replace('newyear.html','newyear_full.html')">全画面で表示する。</span><br>
+        ※PCのフルスクリーン向け<br>
+        ディスプレイサイズが小さかったり文字サイズが大きいと見切れるかもしれないのでズーム調整お願いします
+      </p>
 
       <h2>変更履歴</h2>
 
       2022/11/19 - リリース<br>
+      2024/12/08 - 改修<br>
       <hr>
       <div style="text-align: center;">YuuhaLandのサイト ©YuuhaLand</div>
     </div>
@@ -84,4 +74,6 @@
   <div style="height: 35px;"></div>
 </body>
 
+<script>const full = false;</script>
+<script src="./newyear.js"></script>
 </html>
