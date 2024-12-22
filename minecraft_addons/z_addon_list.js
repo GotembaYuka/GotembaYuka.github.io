@@ -169,12 +169,12 @@ let adlist = {
       link: "https://github.com/YuuhaLand/memori-sakugen-ui/releases/latest"
     },
     {
-      name: "Revival to v1.16",
-      description: "変わってしまったUIを1.16風にできる限り戻しました!!!",
+      name: "Restore Classic",
+      description: "色々変わってしまったUIなどをできる限り元に戻しました!!",
       type: ["リソースパック"],
       junban: 27,
       icon_url: "https://github.com/YuuhaLand/revival-to-v1.16/blob/main/pack_icon.png?raw=true",
-      link: "./revival_1.16.html"
+      link: "https://github.com/YuuhaLand/revival-to-v1.16/releases/latest"
     },
     {
       name: "Item ID Auxを見れるやつ",
