@@ -1,0 +1,168 @@
+<html lang="ja">
+<head>
+  <title>難読化・復元</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="Description" content="文章をUnicodeやBase64を使って読みづらくしたり復元したりできます" />
+  <meta name="theme-color" content="#f3fca3" />
+  <meta property="og:description" content="文章をUnicodeやBase64を使って読みづらくしたり復元したりできます" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <meta property="og:title" content="難読化・復元" />
+  <meta property="og:image" content="/textures/app_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
+    label {
+      user-select: none;
+    }
+    textarea {
+      width: 100%;
+      height: 230px;
+      min-height: 100px;
+      font-family: "Meiryo", Arial, Helvetica, sans-serif;
+      font-size: 12pt;
+      resize: none;
+    }
+    input[type=button] {
+      width: 100%;
+      height: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <header><img width="48" height="48" src="/textures/app_icon.png" alt="YuuhaLandのサイトのアイコン"><a class="headertext" href="/">YuuhaLandのサイト</a></header>
+    <div class="maincontent">
+      <div class="path">
+        <a href="/">TOP</a> → <a href="/benri/">その他雑貨</a> → 難読化・復元
+      </div>
+      <h2>難読化・復元</h2>
+      文章をUnicodeやBase64を使って読みづらくしたり復元したりできます<br>
+      <b>ここで難読化した文章は知識がある人は復元できちゃいます。<br>もし本当に復元できないような難読化したいならそれに特化したツールを使ってね。</b>
+      <h3>
+        難読化モード
+      </h3>
+      <p>
+        <input type="radio" id="nandokusuru" name="hukugenmode" oninput="kirikae()" checked>
+        <label for="nandokusuru">難読化する</label>
+        <input type="radio" id="hukugensuru" name="hukugenmode" oninput="kirikae()">
+        <label for="hukugensuru">復元する</label>
+      </p>
+
+      <!-- 難読 -->
+      <div id="nandokumode" style="display: inline;">
+        <p>
+          <input type="radio" id="unicode" name="henkanmodenandoku" oninput="nandoku()" checked>
+          <label for="unicode">Unicode</label>
+          <input type="radio" id="base" name="henkanmodenandoku" oninput="nandoku()">
+          <label for="base">Base64</label>
+        </p>
+        <h3>難読化したい文章を入力</h3>
+        <textarea id="motobun" oninput="nandoku()"></textarea>
+        <label><input type="checkbox" id="noenter" oninput="nandoku()">改行はそのままにする(Unicode難読化用)</label>
+        <h3>難読化結果</h3>
+        <textarea id="kekka" readonly></textarea>
+        <input type="button" id="copy" value="コピーする" onclick="nandokuCopy()">
+      </div>
+
+      <!-- 復元 -->
+      <div id="hukugenmode" style="display: none;"> 
+        <p>
+          <input type="radio" id="unicodeh" name="henkanmodehukugen" oninput="hukugen()" checked>
+          <label for="unicodeh">Unicode</label>
+          <input type="radio" id="baseh" name="henkanmodehukugen" oninput="hukugen()">
+          <label for="baseh">Base64</label>
+        </p>
+        <h3>復元したい難読文を入力</h3>
+        <textarea id="nandokubun" oninput="hukugen()"></textarea>
+        <h3>復元結果</h3>
+        <textarea id="hukugenkekka" readonly></textarea>
+        <input type="button" id="copyh" value="コピーする" onclick="hukugenCopy()">
+      </div>
+      <hr>
+      <div style="text-align: center;">YuuhaLandのサイト ©YuuhaLand</div>
+    </div>
+  </div>
+  <div style="height: 35px;"></div>
+</body>
+
+<script>
+  const nandokusuru = document.getElementById("nandokusuru");
+  const unicode = document.getElementById("unicode");
+  const unicodeh = document.getElementById("unicodeh");
+  const motobun = document.getElementById("motobun");
+  const nandokubun = document.getElementById("nandokubun");
+  const kekka = document.getElementById("kekka");
+  const hukugenkekka = document.getElementById("hukugenkekka");
+  const noenter = document.getElementById("noenter");
+  const copy = document.getElementById("copy");
+  const copyh = document.getElementById("copyh");
+  const nandokumode = document.getElementById("nandokumode");
+  const hukugenmode = document.getElementById("hukugenmode");
+
+  function nandoku() { //ChatGPTちゃんまぢ感謝感謝
+    copy.value = "コピーする";
+    if (unicode.checked) {
+      let result = "";
+      let str = motobun.value;
+      for (let i = 0; i < str.length; i++) {  
+        const charCode = str.charCodeAt(i);
+        result += "\\u" + charCode.toString(16).padStart(4, "0");
+      }
+      if (noenter.checked) result = result.replace(/\\u000a/g,"\n");
+      kekka.value = result;
+    } else {
+      let result = "";
+      let str = motobun.value;
+      let utf8 = unescape(encodeURIComponent(str));
+      result = btoa(utf8);
+      kekka.value = result;
+    }
+  }
+
+  function hukugen() { //ChatGPTちゃんまぢ感謝感謝
+    copyh.value = "コピーする";
+    if (unicodeh.checked) {
+      let str = nandokubun.value
+      hukugenkekka.value = str.replace(/\\u[\dA-Fa-f]{4}/g, function(match) {
+        return String.fromCharCode(parseInt(match.slice(2), 16))
+      })
+    } else {
+      let str = nandokubun.value
+      let utf8 = atob(str)  //ChatGPTちゃんまぢ感謝感謝 
+      hukugenkekka.value = decodeURIComponent(escape(utf8))
+    }
+  }
+
+  function nandokuCopy() {
+    let copyText = kekka.value;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(copyText);
+      copy.value = "コピーしました";
+    } else {
+      window.alert("ブラウザが古いためコピーできませんでした!");
+    }
+  }
+
+
+  function hukugenCopy() {
+    let copyText = nandokubun.value;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(copyText);
+      copyh.value = "コピーしました";
+    } else {
+      window.alert("ブラウザが古いためコピーできませんでした!");
+    }
+  }
+
+  function kirikae() {
+    if (nandokusuru.checked) {
+      nandokumode.style.display = "inline";
+      hukugenmode.style.display = "none";
+    } else {
+      nandokumode.style.display = "none";
+      hukugenmode.style.display = "inline";
+    }
+  }
+</script>
+</html>
