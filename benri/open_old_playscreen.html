@@ -16,13 +16,21 @@
 </head>
 
 <style>
-  div#launchButton {
+  span#launchButton {
     text-decoration: none;
     padding: 6px;
-    background-color: coral;
-    width: fit-content;
+    background-color: #ffbca3;
     color: #640000;
     font-size: 20pt;
+    font-weight: bold;
+    border-radius: 5px;
+    border: #640000 solid 3px;
+  }
+  span#launchButton:hover {
+    border: #640000 solid 3px;
+  }
+  span#launchButton:active {
+    background-color: #e2a48d;
   }
   a#launch {
     text-decoration: none;
@@ -38,10 +46,11 @@
       </div>
       <h2>マイクラ統合版 古いプレイ画面を開く</h2>
       マイクラ統合版を起動したあとに下のボタンを押せば、<br>
-      古いプレイ画面を開くことができます！！
+      古いプレイ画面を開くことができます！！<br><br>
       <a href="minecraft://openServersTab" id="launch">
-        <div id="launchButton">古いプレイ画面を開く！！</div>
-      </a><br>
+        <span id="launchButton">古いプレイ画面を開く！！</span>
+      </a><br><br>
+      対応している機種: Windows10/11、Android、iOS/iPadOS<br><br>
       または、Windows+Rを押して、これをコピペしてエンターすることでも開けます。<br>
       <pre>minecraft://openServersTab</pre>
       <hr>
