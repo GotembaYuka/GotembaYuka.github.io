@@ -3,9 +3,6 @@
 
 <head>
   <title>マイクラ統合版 セクション装飾一覧表</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.ico">
   <meta charset="utf-8" />
   <meta name="Description" content="マイクラ統合版での「§」を使った装飾のリストです。" />
@@ -272,6 +269,10 @@
     font-family: 'Mojangles';
     src: url(./font/Mojangles.ttf);
   }
+  @font-face {
+    font-family: 'Unifont';
+    src: url(./font/unifont.ttf);
+  }
 
   html {
     color-scheme: dark;
@@ -280,12 +281,12 @@
 
   body {
     color: white;
-    font-family: 'Mojangles', 'DotGothic16', sans-serif;
-    font-size: 20px;
+    font-family: 'Mojangles', 'Unifont', sans-serif;
+    font-size: 14pt;
   }
 
   textarea {
-    font-family: 'Mojangles', 'DotGothic16', sans-serif;
+    font-family: 'Mojangles', 'Unifont', sans-serif;
     font-size: 20px;
     width: calc(100% - 20px);
     height: 300px;
