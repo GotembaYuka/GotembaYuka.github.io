@@ -1,0 +1,67 @@
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-image: url(./images/serverback.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: bottom;
+  font-family: 'メイリオ', Arial, Helvetica, sans-serif;
+  color: white;
+  width: 1000px;
+  max-width: 100%;
+  margin: auto;
+}
+
+h2 {
+  background-color: #474444;
+  border-left: 4px solid #00a3d4;
+  padding-left: 8px;
+}
+
+img#server-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 30%;
+}
+
+div#header {
+  height: 300px;
+}
+
+div#title {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed #00a3d4;
+}
+
+div#body {
+  background-color: #3a3a3a;
+  color: white;
+  padding: 10px;
+  border: 2px solid #313131;
+  border-radius: 10px;
+}
+
+div#join-now-button {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14pt;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #5865f2;
+  color: #ffffff;
+  border-radius: 3px;
+  border: #1e1766 solid 1px;
+  transition: .2s;
+}
+
+div#join-now-button:hover {
+  background-color: #4752c4;
+}
+
+div#join-now-button:active {
+  background-color: #3c45a5;
+}

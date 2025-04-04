@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#00a3d4" />
+  <meta name="description" content="ごて鯖 Discordサーバーでは、自由に雑談したり、YuuhaLandオリジナルのアドオンなどをダウンロードしたりできます！" />
+  
+  <meta name="twitter:title" content="ごて鯖 Gote-Server" />
+  <meta name="twitter:description" content="ごて鯖 Discordサーバーでは、自由に雑談したり、YuuhaLandオリジナルのアドオンなどをダウンロードしたりできます！" />
+  <meta name="twitter:image" content="https://yuuhaland.github.io/servers/gote-server/images/serverback.jpg" />
+
+  <meta property="og:title" content="ごて鯖 Gote-Server" />
+  <meta property="og:description" content="ごて鯖 Discordサーバーでは、自由に雑談したり、YuuhaLandオリジナルのアドオンなどをダウンロードしたりできます！" />
+  <meta property="og:image" content="https://yuuhaland.github.io/servers/gote-server/images/serverback.jpg" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <title>ごて鯖 Gote-Server</title>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="body">
+    <div id="title">
+      <span style="font-size: 26pt; font-weight: bold;">ごて鯖 Gote-Server</span><br>
+      🟢 <span id="header-online-count">--</span>人がオンライン
+    </div>
+    <p>ごて鯖 Discordサーバーでは、自由に雑談したり、YuuhaLandオリジナルのアドオンなどをダウンロードしたりできます！</p>
+    <h2>サーバーの特徴</h2>
+    <ul>
+      <li>💬｜自由に雑談・つぶやきができる！</li>
+      <li>🎮️｜ここでしか手に入らないMinecraft統合版のアドオンを<b>ダウンロードできます！</b></li>
+      <li>📣｜<b>宣伝目的</b>でもOK</li>
+      <li>🛕｜<b>イベント</b>もたまに開催予定！</li>
+      <li>⚔️｜<b>バトルミニゲーム再現ワールド</b>も！</li>
+      <li>😎｜たまにマイクラ内でワールドも開きます！</li>
+    </ul>
+    <h2>ダウンロードできるアドオンの一例</h2>
+    <ul>
+      <li>コマンドブロックなどをgiveコマンドを使わずクリエイティブインベントリからすぐにゲットできるアドオン</li>
+      <li>インベントリなどを開いている状態でも後ろにHUD（ホットバーなど）を表示したままにできるリソースパック</li>
+      <li>チャット画面の黒い背景を削除するリソースパック</li>
+      <li>ドットフォントで全角スペースが「IDSP」になってしまう問題を直すリソースパック</li>
+      <li>その他いろいろ！</li>
+    </ul>
+    <h2>参加はこちらから！</h2>
+    <div style="display: flex;">
+      <img id="server-icon" src="./images/servericon.png" alt="サーバーのアイコン">
+      <div style="margin-left: 10px; width: 100%;">
+        《🎍ごて鯖🎂》🎶(❁´◡`❁)<br>
+        🟢 <span id="server-online-count">--</span>人がオンライン<br>
+        <a href="https://discord.gg/7SnjrqKQeS" style="  text-decoration: none;">
+          <div id="join-now-button">
+            Discordサーバーに参加!!
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  fetch("https://discord.com/api/guilds/773425651918831626/widget.json")
+  .then(response => response.text())
+  .then(data => {
+    const gote = JSON.parse(data)
+    document.getElementById("header-online-count").textContent = gote.presence_count;
+    document.getElementById("server-online-count").textContent = gote.presence_count;
+  })
+  .catch(error => {
+    console.error("オンライン数を取得でエラーが発生しました: " + error)
+  })
+</script>
+</html>
