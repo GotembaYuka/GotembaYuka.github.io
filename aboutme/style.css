@@ -1,0 +1,165 @@
+/***********************/
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #131313;
+  font-family: 'Meiryo', Arial, Helvetica, sans-serif;
+  color: white;
+  width: 1000px;
+  max-width: 100%;
+  margin: auto;
+}
+
+h2 {
+  background-color: #474444;
+  border-left: 4px solid #00a3d4;
+  padding-left: 8px;
+  border-radius: 4px;
+  line-height: 55px;
+}
+
+hr {
+  border: #636363 solid 1px;
+}
+
+a {
+  color: #00a8fc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline #006ce7;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/***********************/
+
+div#body {
+  background-color: #3a3a3a;
+  color: white;
+  padding: 10px;
+  border: 2px solid #313131;
+  border-radius: 10px;
+}
+
+img#avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+img#header {
+  width: 100%;
+  background-image: url(./images/yuka_banner.jpg);
+  max-width: 100%; height: auto;
+}
+
+/***********************/
+
+img.server-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 30%;
+}
+
+div.online {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: #40a258;
+  border-radius: 50%;
+}
+
+div.server-invite {
+  user-select: none;
+  background-color: #292929;
+  padding: 10px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+div.invited {
+  font-weight: bold;
+  color: #adadad;
+  margin-bottom: 5px;
+}
+
+div.online-count {
+  display: flex;
+  color: #adadad;
+}
+
+div.join-now-button {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14pt;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #248046;
+  color: #ffffff;
+  border-radius: 3px;
+  transition: .2s;
+}
+
+div.join-now-button:hover {
+  background-color: #1a6334;
+}
+
+div.join-now-button:active {
+  background-color: #15562b;
+}
+
+/***********************/
+
+div.link-panel {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: #636363 solid 2px;
+}
+img.link-icon {
+  width: 80px;
+  height: 80px;
+}
+a.link-link {
+  color: #80c6ff;
+  font-size: 16pt;
+  text-decoration: underline;
+}
+
+/***********************/
+
+div#contents {
+  margin-top: 30px;
+}
+
+div#tabs {
+  margin-top: 10px;
+  user-select: none;
+}
+
+span.tabitem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+span.tabitem:hover {
+  color: #ffffff;
+  border-bottom: #868686 solid 2px;
+}
+span.tabitem.select {
+  color: #efa1ff;
+  cursor: pointer;
+  border-bottom: #efa1ff solid 2px;
+}
+
+/***********************/

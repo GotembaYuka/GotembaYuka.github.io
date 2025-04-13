@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#414a85" />
+  <meta name="description" content="Minecraft統合版を中心に活動してる人です。" />
+
+  <meta name="twitter:title" content="ごてんば＠たまご隊" />
+  <meta name="twitter:description" content="Minecraft統合版を中心に活動してる人です。" />
+  <meta name="twitter:image" content="https://yuuhaland.github.io/aboutme/images/yuka_avatar.png" />
+
+  <meta property="og:title" content="ごてんば＠たまご隊" />
+  <meta property="og:description" content="Minecraft統合版を中心に活動してる人です。" />
+  <meta property="og:image" content="https://yuuhaland.github.io/aboutme/images/yuka_avatar.png" />
+  <meta property="og:site_name" content="©YuuhaLand" />
+  <title>ごてんば＠たまご隊</title>
+</head>
+
+<script>
+</script>
+
+<body>
+  <div id="body">
+    <img id="header" src="./images/yuka_banner.jpg" draggable="false" ondragstart="return false;">
+    <div style="display: flex;">
+      <img id="avatar" src="./images/yuka_avatar.png" alt="アイコン" draggable="false" ondragstart="return false;">
+      <div style="margin-left: 10px; width: 100%;">
+        <span style="font-size: 18pt; font-weight: bold;">ごてんば＠たまご隊</span>
+        <span style="font-size: 12pt; color:darkgrey">@YuuhaLand</span><br>
+        <a href="https://x.com/Gotemba912" target="_blank" title="Twitter"><img src="./images/sns_twitter.png" width="22" height="22"></a>
+        <a href="https://www.youtube.com/@YuuhaLand" target="_blank" title="YouTube"><img src="./images/sns_youtube.png" width="22" height="22"></a>
+        <a href="https://github.com/YuuhaLand" target="_blank" title="Github"><img src="./images/sns_github.png" width="22" height="22"></a>
+      </div>
+    </div>
+    <div id="tabs">
+      <span class="tabitem select" onclick="tabc(0)">自己紹介</span>
+      <span class="tabitem" onclick="tabc(1)">関連サーバー</span>
+      <span class="tabitem" onclick="tabc(2)">リンク集</span>
+    </div>
+    <div id="contents">
+      <div class="tabcontent">
+        <p>
+          Minecraft統合版を中心に活動してる人です。<br>
+          主にコマンドやってます。<br>
+          PvPは弱いです。<br>
+          別ゲーも良くたまにします。<br>
+          仲良くしてね。
+        </p>
+        <hr>
+        <p>
+          名前: ごてんば<br>
+          年齢: 成人済<br>
+          生年月日: 探せばある<br>
+          性別: 女<br>
+          マイクラ歴: <script>document.write(new Date().getFullYear()-2016);</script>年くらい
+        </p>
+        <p>
+          ゲーム: MinecraftBE、Roblox、原神、鳴潮など<br>
+          マイクラ分野: コマンド、アドオン、スキン作成<br>
+          Xbox ID: YuuhaLand, Yuka0745
+        </p>
+        <hr>
+        <p>
+          話せる言語: 日本語<br>
+          英語はDeepLに丸投げです<br>
+        </p>
+        <p>
+          プログラム: javascript (scriptAPI、ブラウザ)<br>
+          まともに勉強しないで勘とゴリ押しでなんとか出来てるので詳しくはないです。
+        </p>
+        <hr>
+        <p>
+          私は教えるのがだいぶ下手なので質問されても答えられなかったりするかもしれないです。<br>
+          <span style="font-weight: bold;">アドオンなどの作成依頼は(今のところ)受けてません。</span>
+        </p>
+      </div>
+      <div class="tabcontent">
+        <p>以下は私が運営してるサーバーです。</p>
+
+
+        <a href="https://discord.gg/7SnjrqKQeS">https://discord.gg/7SnjrqKQeS</a>
+        <div class="server-invite">
+          <div class="invited">サーバーに参加するよう招待されました</div>
+          <div style="display: flex; margin-bottom: 10px;">
+            <img class="server-icon" src="/servers/gote-server/images/servericon.png" alt="サーバーのアイコン">
+            <div style="margin-left: 10px; width: 100%;">
+              <span style="font-weight: bold;">《🎍ごて鯖🎂》🎶(❁´◡`❁)</span><br>
+              <div class="online-count"><div class="online"></div><span><span id="gote_count"></span>人がオンライン</span></div>
+            </div>
+          </div>
+          <a href="https://discord.gg/7SnjrqKQeS" style="  text-decoration: none;">
+            <div class="join-now-button">
+              参加
+            </div>
+          </a>
+        </div>
+
+
+        <a href="https://discord.gg/skX9YHp4fC">https://discord.gg/skX9YHp4fC</a>
+        <div class="server-invite">
+          <div class="invited">サーバーに参加するよう招待されました</div>
+          <div style="display: flex; margin-bottom: 10px;">
+            <img class="server-icon" src="./images/server_addon.png" alt="サーバーのアイコン">
+            <div style="margin-left: 10px; width: 100%;">
+              <span style="font-weight: bold;">YuuhaLand's Add-ons feedback</span><br>
+              <div class="online-count"><div class="online"></div><span><span id="addon_count"></span>人がオンライン</span></div>
+            </div>
+          </div>
+          <a href="https://discord.gg/skX9YHp4fC" style="  text-decoration: none;">
+            <div class="join-now-button">
+              参加
+            </div>
+          </a>
+        </div>
+
+        <hr>
+        <p>以下は私がスタッフ(Operator)のサーバーです。</p>
+
+        <a href="https://discord.gg/tp278e3Hqn">https://discord.gg/tp278e3Hqn</a>
+        <div class="server-invite">
+          <div class="invited">サーバーに参加するよう招待されました</div>
+          <div style="display: flex; margin-bottom: 10px;">
+            <img class="server-icon" src="./images/server_zaia.png" alt="サーバーのアイコン">
+            <div style="margin-left: 10px; width: 100%;">
+              <span style="font-weight: bold;">▷彩世:Zaia-Realm■ 🧺たまごの巣🐣</span><br>
+              <div class="online-count"><div class="online"></div><span><span id="zaia_count"></span>人がオンライン</span></div>
+            </div>
+          </div>
+          <a href="https://discord.gg/tp278e3Hqn" style="text-decoration: none;">
+            <div class="join-now-button">
+              参加
+            </div>
+          </a>
+          <a href="https://realms.gg/re-LAY9Wchk" style="text-decoration: none;">
+            <div class="join-now-button" style="margin-top: 10px;">
+              MCBE Realmに参加
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="tabcontent">
+        <h2>SNSアカウント</h2>
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_x.png" alt="Twitter">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://x.com/Gotemba912">Twitter (X)</a><br>
+            メインで活動してます。
+          </div>
+        </div>
+
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_youtube_red.png" alt="YouTube">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://www.youtube.com/@YuuhaLand">YouTube</a><br>
+            動画をあげることはあんまりないです。
+          </div>
+        </div>
+
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_misskey.png" alt="Misskey">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://misskey.io/@yukayama">Misskey</a><br>
+            低浮上。
+          </div>
+        </div>
+
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_mcpedl.png" alt="MCPE DL">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://mcpedl.com/user/yuuhaland/">MCPE DL</a><br>
+            私のアドオンはここでもちょっとだけ配布してます。
+          </div>
+        </div>
+
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_crafters.png" alt="クラフターズコロニー">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://minecraft-mcworld.com/author/150465e8d90e477d140a143c319aa1da5650051e/">クラフターズコロニー</a><br>
+            私のアドオンはここでもちょっとだけ配布してます。
+          </div>
+        </div>
+
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_github.png" alt="Github">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://github.com/YuuhaLand/">Github</a><br>
+            主にアドオン配布に使ってます。<br>
+            逆に言えばそれくらいしかしてないのでGithubに関する知識はあんまりないです。
+          </div>
+        </div>
+
+        <div class="link-panel">
+          <img class="link-icon" src="./images/sns_scratch.png" alt="Scratch">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://scratch.mit.edu/users/Yuka0745/">Scratch</a><br>
+            低浮上。暇つぶし。
+          </div>
+        </div>
+
+        <h2>Webサイト･ブログ</h2>
+        <div class="link-panel">
+          <img class="link-icon" src="/textures/app_icon.png" alt="ゆうはのブログ">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://gote-server-yuka.blogspot.com/">ゆうはのブログ</a><br>
+            マイクラのこととかをメモがてらマイペースに書きます
+          </div>
+        </div>
+        <div class="link-panel">
+          <img class="link-icon" src="/textures/app_icon.png" alt="ゆうはのブログ">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://yuuhaland.github.io/">ゆうはのブログ</a><br>
+            ここのサイトではYuuhaLandが作ったアドオンやツールを使うことができます
+          </div>
+        </div>
+        <div class="link-panel">
+          <img class="link-icon" src="/servers/gote-server/images/servericon.png" alt="ごて鯖 公式サイト">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://sites.google.com/view/gote-server/">ごて鯖 公式サイト</a><br>
+            ごて鯖をもっと知れるサイト。<br>
+            放置気味。
+          </div>
+        </div>
+        <div class="link-panel">
+          <img class="link-icon" src="./images/site_seesaa.png" alt="ごて鯖 Wiki">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://gote-server.playing.wiki/">ごて鯖 Wiki</a><br>
+            ごて鯖をより深く知ることができるWiki。<br>
+            放置気味。<br>
+            Powered by Seesaa Wiki。
+          </div>
+        </div>
+        <div class="link-panel">
+          <img class="link-icon" src="./images/server_battle.png" alt="Battle for Minigame">
+          <div style="margin-left: 10px; width: 100%;">
+            <a class="link-link" href="https://sites.google.com/view/battle-minigame/">Battle for Minigame</a><br>
+            Battle for Minigame (バトルミニゲーム再現ワールド)の遊び方がWebでも見れます！
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <hr>
+      <p style="text-align: center;">
+        ©YuuhaLand
+      </p>
+    </div>
+  </div>
+  <div style="height: 40px;"></div>
+</body>
+
+<script>
+  function tabc(num=0) {
+    const tabs = document.getElementsByClassName("tabitem");
+    const tabcontents = document.getElementsByClassName("tabcontent");
+    for (const tab of tabs) {
+      tab.classList.remove("select");
+    }
+    for (const tabcontent of tabcontents) {
+      tabcontent.style.display = "none";
+    }
+    tabs[num].classList.add("select");
+    tabcontents[num].style.display = "block";
+  }
+  function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    const queryParams = {};
+
+    params.forEach((value, key) => {
+      queryParams[key] = value;
+    });
+
+    return queryParams;
+  }
+
+
+  fetch("https://discord.com/api/guilds/773425651918831626/widget.json").then(response => response.text())
+  .then(data => {
+    const gote = JSON.parse(data)
+    document.getElementById("gote_count").textContent = gote.presence_count;
+  })
+  fetch("https://discord.com/api/guilds/1172518832221474818/widget.json").then(response => response.text())
+  .then(data => {
+    const gote = JSON.parse(data)
+    document.getElementById("addon_count").textContent = gote.presence_count;
+  })
+  fetch("https://discord.com/api/guilds/1217433245487202406/widget.json").then(response => response.text())
+  .then(data => {
+    const gote = JSON.parse(data)
+    document.getElementById("zaia_count").textContent = gote.presence_count;
+  })
+
+  const queryParams = getQueryParams();
+  if (queryParams.tab) {
+    tabc(queryParams.tab);
+  } else {
+    tabc(0);
+  }
+</script>
+</html>
