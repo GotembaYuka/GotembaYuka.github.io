@@ -79,6 +79,8 @@ div.online {
 }
 
 div.server-invite {
+  width: 432px;
+  max-width: calc(100% - 20px);
   user-select: none;
   background-color: #292929;
   padding: 10px;
