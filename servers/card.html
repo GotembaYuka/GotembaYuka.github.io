@@ -149,7 +149,8 @@
       serverJoin.href = gote.instant_invite ? instant_invite : "#";
     }
   }).catch(error => {
-    serverName.textContent = "error!!"
+    serverName.textContent = "error!!";
+    console.error(error);
   })
 </script>
 </html>
