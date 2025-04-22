@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <title>サーバーに参加！！</title>
+  <style>
+    html {
+      color-scheme: dark;
+      height: 100%;
+    }
+    
+    body {
+      background-color: #292929;
+      font-family: 'Meiryo', Arial, Helvetica, sans-serif;
+    }
+    
+    div.server-invite {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+      background-color: #292929;
+      padding: 10px;
+      border-radius: 7px;
+      margin-bottom: 20px;
+    }
+    
+    img#server-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 30%;
+    }
+
+    span#server-name {
+      width: 100%;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    div.online {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-right: 5px;
+      width: 10px;
+      height: 10px;
+      background-color: #40a258;
+      border-radius: 50%;
+    }
+    
+    div.invited {
+      font-weight: bold;
+      color: #adadad;
+      margin-bottom: 5px;
+    }
+    
+    div.online-count {
+      display: flex;
+      color: #adadad;
+    }
+    
+    div.join-now-button {
+      width: calc(100% - 20px);
+      text-align: center;
+      text-decoration: none;
+      font-size: 14pt;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      background-color: #248046;
+      color: #ffffff;
+      border-radius: 3px;
+      transition: .2s;
+    }
+    
+    div.join-now-button:hover {
+      background-color: #1a6334;
+    }
+    
+    div.join-now-button:active {
+      background-color: #15562b;
+    }
+  </style>
+</head>
+<body>
+  <div class="server-invite">
+    <div class="invited">サーバーに参加するよう招待されました</div>
+    <div style="display: flex; margin-bottom: 10px;">
+      <img id="server-icon" src="/textures/app_icon.png" alt="サーバーのアイコン">
+      <div style="margin-left: 10px; width: 100%;">
+        <span id="server-name">loading...</span><br>
+        <div class="online-count"><div class="online"></div><span><span id="server-online"></span>人がオンライン</span></div>
+      </div>
+    </div>
+    <a id="server-join" href="#" style="text-decoration: none;">
+      <div class="join-now-button">
+        参加
+      </div>
+    </a>
+  </div>
+</body>
+<script>
+  const serverIcon = document.getElementById("server-icon");
+  const serverName = document.getElementById("server-name");
+  const serverOnline = document.getElementById("server-online");
+  const serverJoin = document.getElementById("server-join");
+
+  const servers = {
+    "773425651918831626": { //ごて鯖
+      invite: "https://discord.gg/7SnjrqKQeS",
+      iconsrc: "./gote-server/images/servericon.png"
+    },
+    "1217433245487202406": { //Zaia
+      invite: "https://discord.gg/tp278e3Hqn",
+      iconsrc: "../aboutme/images/server_zaia.png"
+    },
+    "1172518832221474818": { //アドオンフィードバック
+      invite: "https://discord.gg/skX9YHp4fC",
+      iconsrc: "../aboutme/images/server_addon.png"
+    }
+  }
+  
+  function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    const queryParams = {};
+
+    params.forEach((value, key) => {
+      queryParams[key] = value;
+    });
+
+    return queryParams;
+  }
+
+  const param = getQueryParams()
+  let serverId = param.id ? param.id : "773425651918831626";
+
+  fetch(`https://discord.com/api/guilds/${serverId}/widget.json`).then(response => response.text())
+  .then(data => {
+    const gote = JSON.parse(data)
+    serverName.textContent = gote.name;
+    serverOnline.textContent = gote.presence_count;
+    if (servers[serverId]) {
+      serverIcon.src = servers[serverId].iconsrc;
+      serverJoin.href = servers[serverId].invite;
+    } else {
+      serverJoin.href = gote.instant_invite ? instant_invite : "#";
+    }
+  }).catch(error => {
+    serverName.textContent = "error!!"
+  })
+</script>
+</html>
