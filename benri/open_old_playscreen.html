@@ -16,6 +16,14 @@
 </head>
 
 <style>
+  span.url {
+    margin-right: 3px;
+    user-select: all;
+    background-color: #dddddd;
+    border-radius: 3px;
+    padding: 2px;
+    line-height: 30px;
+  }
   span#launchButton {
     text-decoration: none;
     padding: 6px;
@@ -46,22 +54,33 @@
       </div>
       <h2>マイクラ統合版 古いプレイ画面を開く</h2>
       マイクラ統合版を起動したあとに下のボタンを押せば、<br>
-      古いプレイ画面を開くことができます！！<br><br>
+      古いプレイ画面を開くことができます！<br><br>
       <a href="minecraft://openServersTab" id="launch">
         <span id="launchButton">古いプレイ画面を開く！！</span>
       </a><br><br>
-      動作確認済み端末: Windows10/11、Android/ChromeOS、iOS/iPadOS<br>
-      動作確認済みバージョン: v1.21.73
+      対応機種: Android/ChromeOS、iOS/iPadOS、Windows10/11<br>
+      動作確認済みバージョン: v1.21.7x, v1.21.80 (Preview), v1.21.90 (Preview)
+      <hr>
+      <h3>ホーム画面にショートカットを作る</h3>
       <p>
-        iOS・iPadOS・Windowsの方はホーム画面に以下のURLのショートカットを作ることで素早く旧プレイ画面を開けます。<br>
-        <pre>minecraft://openServersTab</pre><br>
+        iOS・iPadOSの方はホーム画面に以下のURLのショートカットを作ることで素早く旧プレイ画面を開けます。<br>
+        <p>
+          <span class="url">minecraft://openServersTab</span><input type="button" value="コピーする" onclick="copy();">
+        </p>
         <a href="https://gote-server-yuka.blogspot.com/2025/04/anti-new-playscreen.html" target="_blank">iOSでショートカットを作る方法についてはコチラ</a>
       </p>
-      <p>Windowsの方はアプリを使えば素早く旧プレイ画面を開けます。<br><a href="./open_old_playscreen_windows.html">詳しくはコチラ</a></p>
+      <h3>Windows用便利アプリ</h3>
       <p>
-        <b style="color:red;">New!</b> サーバータブではなくワールドタブを開いた状態で旧プレイ画面を開きたい場合は、以下のリソースパックを使うとワールドタブを開いた状態で旧プレイ画面が開けます。<br>
+        Windowsの方はアプリを使えば素早く旧プレイ画面を開けます。<br>
+        <a href="./open_old_playscreen_windows.html">詳しくはコチラ</a>
+      </p>
+      <h3>ワールドタブを開いた状態で旧プレイ画面を開く</h3>
+      <p>
+        サーバータブではなくワールドタブを開いた状態で旧プレイ画面を開きたい場合は、<br>
+        以下のリソースパックを使うとワールドタブを開いた状態で旧プレイ画面が開けます。<br>
         <a href="./assets/openoldplayscreen_fix.mcpack" download="">リソースパックをダウンロード</a>
       </p>
+      <input type="button" value="あ" onclick="aaa();">
       <h3>参考にしたサイト</h3>
       <a href="https://github.com/theaddonn/MCBE_URIS" target="_blank">https://github.com/theaddonn/MCBE_URIS</a>
       <hr>
@@ -70,5 +89,19 @@
   </div>
   <div style="height: 35px;"></div>
 </body>
+
+<script>
+  function copy() {
+    try {
+      navigator.clipboard.writeText("minecraft://openServersTab");
+      window.alert("コピーしました!!");
+    } catch {
+      window.alert("コピーできませんでした。手動でコピーをお願いします。");
+    }
+  }
+  function aaa() {
+    navigator.share({ title: "Minecraft 旧プレイ画面", url: "minecraft://openServersTab" });
+  }
+</script>
 
 </html>

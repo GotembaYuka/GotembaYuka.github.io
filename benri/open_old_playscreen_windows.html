@@ -16,6 +16,13 @@
 </head>
 
 <style>
+  textarea {
+    width: calc(100% - 5px);
+    height: 300px;
+    resize: none;
+    font-family: 'MS Gothic', 'Courier New', Courier, monospace;
+    font-size: 12pt;
+  }
   span#launchButton {
     text-decoration: none;
     padding: 6px;
@@ -45,18 +52,59 @@
         <a href="/">TOP</a> → <a href="/benri/">その他雑貨</a> → <a href="./open_old_playscreen.html">マイクラ統合版 古いプレイ画面を開く</a> → マイクラWin10 古いプレイ画面を素早く開けるツール
       </div>
       <h2>マイクラWin10 古いプレイ画面を素早く開けるツール</h2>
-      アプリを起動するだけで、簡単に古いプレイ画面を開くことができます!<br>
-      使い方や各注意事項は付属のテキストファイルをご覧ください。<br><br>
-      動作確認済み: Windows10/11<br><br>
-      <a href="https://raw.githubusercontent.com/YuuhaLand/various/refs/heads/main/minecraft/LaunchMCBE.zip" id="launch">
+      <p>アプリを起動するだけで、簡単に古いプレイ画面を開くことができます!</p>
+      <p>ダウンロードする前に、以下をお読み下さい。</p>
+      <textarea readonly>LaunchMCBE
+by YuuhaLand (Gote-Server)
+------------------------------
+
+１．使い方
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+このアプリは、Windowsのタスクバーにピン留めすると便利に使えます。
+以下はアプリ(LaunchMCBE.exe)をタスクバーにピン留めしていることを想定した使い方です。
+
+アプリをそのまま起動させると、Minecraftが起動します。
+Minecraftのタイトル画面が表示された状態で、もう一度アプリを起動させると、
+旧プレイ画面が表示されます。
+
+ポイント: 設定やマーケットプレイス画面を開いていた場合でも、アプリを起動すれば
+すぐに旧プレイ画面を開くことができます。
+なお、ワールドに参加中はマイクラ画面上部にエラーが表示され、旧プレイ画面を開くことは
+できませんのでご注意下さい。
+
+Shiftキーを押しながらアプリを起動させると、Minecraft Previewを起動できます。
+Minecraft Previewでも、同様に旧プレイ画面を表示できます。
+
+
+２．アンインストール方法
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+タスクバーからアプリのピン留めを外してから、エクスプローラーでそのまま削除しておkです。
+パソコン上にデータ保存などはしておりません。
+
+
+３．注意事項
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+このアプリはHSPで作りました。
+アプリにウイルスはありませんが心配なら「LaunchMCBE.hsp」から
+ご自分で実行ファイル生成して下さい。
+
+HSPはここでDLできます→ https://hsp.tv/
+
+アプリを使うことによって起こった問題について、
+YuuhaLandおよびごて鯖は一切の責任を負いかねます。
+二次配布は禁止です。
+
+©Gote-Server
+All rights reserved.</textarea><br><br>
+      <a href="./assets/LaunchMCBE.zip" id="launch">
         <span id="launchButton">ダウンロード</span>
       </a><br><br>
-      LaunchMCBE.zip 268KB<br>
-      動作確認済みバージョン: v1.21.73<br><br>
-      iOS/iPadOS/Android/ChromeOSで開きたい場合はWebツールをご利用下さい<br>
-      <p><a href="./open_old_playscreen.html">マイクラ統合版 古いプレイ画面を開く(Webツール)</a></p>
+      ファイル名／サイズ: LaunchMCBE.zip 269KB<br>
+      対応機種: Windows10/11<br>
+      <h3>ワールドタブを開いた状態で旧プレイ画面を開く</h3>
       <p>
-        <b style="color:red;">New!</b> サーバータブではなくワールドタブを開いた状態で旧プレイ画面を開きたい場合は、以下のリソースパックを使うとワールドタブを開いた状態で旧プレイ画面が開けます。<br>
+        サーバータブではなくワールドタブを開いた状態で旧プレイ画面を開きたい場合は、<br>
+        以下のリソースパックを使うとワールドタブを開いた状態で旧プレイ画面が開けます。<br>
         <a href="./assets/openoldplayscreen_fix.mcpack" download="">リソースパックをダウンロード</a>
       </p>
       <h3>参考にしたサイト</h3>
