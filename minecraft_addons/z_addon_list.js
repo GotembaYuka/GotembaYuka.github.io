@@ -5,31 +5,15 @@ let adlist = {
       description: "金床で改行テキストを使用できます。",
       type: ["リソースパック"],
       junban: 1,
-      icon_url: "https://github.com/YuuhaLand/Newline-Text_for_Anvil/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/Newline-Text_for_Anvil/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/Newline-Text_for_Anvil/releases/latest"
-    },
-    {
-      name: "Gote-Supporter",
-      description: "マイクラを快適に便利に楽しめるように設計されたUIリソースパックです!",
-      type: ["リソースパック"],
-      junban: 2,
-      icon_url: "https://github.com/YuuhaLand/Gote-Supporter/blob/main/pack_icon.png?raw=true",
-      link: "./gote-supporter.html"
-    },
-    {
-      name: "Hidden Item Giver",
-      description: "隠しアイテムを簡単に入手できる!!",
-      type: ["ビヘイビアーパック"],
-      junban: 3,
-      icon_url: "https://github.com/YuuhaLand/Hidden-Item-Giver/blob/main/pack_icon.png?raw=true",
-      link: "./hidden_item_giver.html"
     },
     {
       name: "Custom UI Maker",
       description: "本と羽根ペンを使って内容を自由に入力して表示できるUIを作ることができます!",
       type: ["リソースパック"],
       junban: 4,
-      icon_url: "https://github.com/YuuhaLand/custom-ui-maker/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/custom-ui-maker/refs/heads/main/pack_icon.png",
       link: "./custom_ui_maker.html"
     },
     {
@@ -37,7 +21,7 @@ let adlist = {
       description: "コンソールエディション(WiiU, 旧Switch, PS3, 旧PS4, Xbox360, 旧Xbox One)のようなUIにするリソースパックです!",
       type: ["リソースパック"],
       junban: 5,
-      icon_url: "https://github.com/YuuhaLand/ConsoleUI/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/ConsoleUI/refs/heads/main/pack_icon.png",
       link: "./console_ui.html"
     },
     {
@@ -45,7 +29,7 @@ let adlist = {
       description: "カスタムボスバーをscoreboardのsidebarで作れます。<br>/scoreboard objectives add &lt;ID&gt; dummy",
       type: ["リソースパック"],
       junban: 6,
-      icon_url: "https://github.com/YuuhaLand/Custom-bossbar-addon/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/Custom-bossbar-addon/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/Custom-bossbar-addon/releases/latest"
     },
     {
@@ -53,7 +37,7 @@ let adlist = {
       description: "チャットでのセクション装飾を消します<br>全てのサーバーで動くわけではありません!",
       type: ["リソースパック"],
       junban: 7,
-      icon_url: "https://github.com/YuuhaLand/anti_section_decoration_in_chat/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/anti_section_decoration_in_chat/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/anti_section_decoration_in_chat/releases/latest"
     },
     {
@@ -61,7 +45,7 @@ let adlist = {
       description: "Preview版の上のデバッグテキストを非表示にしたりできます。<br>HUD画面でF10を押して切り替えます。",
       type: ["リソースパック"],
       junban: 8,
-      icon_url: "https://github.com/YuuhaLand/debug_text_toggle/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/debug_text_toggle/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/debug_text_toggle/releases/latest"
     },
     {
@@ -69,7 +53,7 @@ let adlist = {
       description: "サーバーフォームをグリッド表示にします",
       type: ["リソースパック"],
       junban: 9,
-      icon_url: "https://github.com/YuuhaLand/grid-sever-form/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/grid-sever-form/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/grid-sever-form/releases/latest"
     },
     {
@@ -77,7 +61,7 @@ let adlist = {
       description: "チャットの文章を簡単にコピペできます",
       type: ["リソースパック"],
       junban: 10,
-      icon_url: "https://github.com/YuuhaLand/chat-text-copy/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/chat-text-copy/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/chat-text-copy/releases/latest"
     },
     {
@@ -101,7 +85,7 @@ let adlist = {
       description: "Gote-Supporterにあったフルスクリーンの本画面です。",
       type: ["リソースパック"],
       junban: 13,
-      icon_url: "https://github.com/YuuhaLand/fullscreen-bock-screen/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/fullscreen-bock-screen/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/fullscreen-bock-screen/releases/latest"
     },
     {
@@ -109,7 +93,7 @@ let adlist = {
       description: "F5キーをスマホで押せる！<br>camera コマンドの実験を有効化する必要があります。",
       type: ["ビヘイビアーパック", "リソースパック"],
       junban: 14,
-      icon_url: "https://github.com/YuuhaLand/touch-f5/blob/main/resource/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/touch-f5/refs/heads/main/resource/pack_icon.png",
       link: "https://github.com/YuuhaLand/touch-f5/releases/latest"
     },
     {
@@ -117,7 +101,7 @@ let adlist = {
       description: "画面効果を追加します！",
       type: ["リソースパック"],
       junban: 16,
-      icon_url: "https://github.com/YuuhaLand/screen-effect/blob/v1.0.0/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/screen-effect/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/screen-effect/releases/latest"
     },
     {
@@ -125,7 +109,7 @@ let adlist = {
       description: "オンラインのプレイヤー数をポーズ画面に表示します！",
       type: ["リソースパック"],
       junban: 19,
-      icon_url: "https://github.com/YuuhaLand/Online-Player-Count/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/Online-Player-Count/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/Online-Player-Count/releases/latest"
     },
     {
@@ -133,7 +117,7 @@ let adlist = {
       description: "このマイクラ統合版用リソースパックは、<br>HUDでTabキーを押すと、プレイヤーリストを表示することができます。",
       type: ["リソースパック"],
       junban: 20,
-      icon_url: "https://github.com/YuuhaLand/Tabkey_Playerlist_UI/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/Tabkey_Playerlist_UI/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/Tabkey_Playerlist_UI/releases/latest"
     },
     {
@@ -141,7 +125,7 @@ let adlist = {
       description: "水のサウンドを1.20.10以前のようにします 1.20.30にのみ対応",
       type: ["リソースパック"],
       junban: 22,
-      icon_url: "https://github.com/YuuhaLand/fixed-water/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/fixed-water/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/fixed-water/releases/latest"
     },
     {
@@ -149,7 +133,7 @@ let adlist = {
       description: "より小さいGUIにできます！",
       type: ["リソースパック"],
       junban: 23,
-      icon_url: "https://github.com/YuuhaLand/safezone-filler/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/safezone-filler/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/safezone-filler/releases/latest"
     },
     {
@@ -157,7 +141,7 @@ let adlist = {
       description: "三人称カメラで音をプレイヤー基準の仕様に戻します",
       type: ["ビヘイビアーパック"],
       junban: 24,
-      icon_url: "https://github.com/YuuhaLand/camera-sound-player/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/camera-sound-player/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/camera-sound-player/releases/latest"
     },
     {
@@ -165,23 +149,15 @@ let adlist = {
       description: "UIでのメモリ使用量を抑え、パフォーマンスを改善します",
       type: ["リソースパック"],
       junban: 26,
-      icon_url: "https://github.com/YuuhaLand/memori-sakugen-ui/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/memori-sakugen-ui/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/memori-sakugen-ui/releases/latest"
-    },
-    {
-      name: "Restore Classic",
-      description: "色々変わってしまったUIなどをできる限り元に戻しました!!",
-      type: ["リソースパック"],
-      junban: 27,
-      icon_url: "https://github.com/YuuhaLand/revival-to-v1.16/blob/main/pack_icon.png?raw=true",
-      link: "https://github.com/YuuhaLand/revival-to-v1.16/releases/latest"
     },
     {
       name: "Item ID Auxを見れるやつ",
       description: "アイテムのItem ID Auxをインベントリから見れます。<br>タッチ非対応です",
       type: ["リソースパック"],
       junban: 28,
-      icon_url: "https://github.com/YuuhaLand/item-id-aux-hyouzi/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/item-id-aux-hyouzi/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/item-id-aux-hyouzi/releases/latest"
     },
     {
@@ -189,7 +165,7 @@ let adlist = {
       description: "フォントをUnicodeフォント化します<br>言語 日本語がおすすめです!",
       type: ["リソースパック"],
       junban: 29,
-      icon_url: "https://github.com/YuuhaLand/compulsion-unicode-font/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/compulsion-unicode-font/refs/heads/main/pack_icon.png",
       link: "./compulsion-unicode-font.html"
     },
     {
@@ -197,7 +173,7 @@ let adlist = {
       description: "大きくなった日本語フォントを小さくする！ +文字化け改善！<br>グロリソ禁止ワールドでも機能します！",
       type: ["リソースパック"],
       junban: 30,
-      icon_url: "https://github.com/YuuhaLand/small-font/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/small-font/refs/heads/main/pack_icon.png",
       link: "./small-font.html"
     },
     {
@@ -205,7 +181,7 @@ let adlist = {
       description: "アルファ時代のスタート画面を再現しました。",
       type: ["リソースパック"],
       junban: 31,
-      icon_url: "https://github.com/YuuhaLand/alpha_startscreen/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/alpha_startscreen/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/alpha_startscreen/releases/latest"
     },
     {
@@ -213,7 +189,7 @@ let adlist = {
       description: "即抜けを検知して通知します!",
       type: ["ビヘイビアーパック"],
       junban: 32,
-      icon_url: "https://github.com/YuuhaLand/Maikura_de_Sokunuke_RTA/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/Maikura_de_Sokunuke_RTA/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/Maikura_de_Sokunuke_RTA/releases/latest"
     },
     {
@@ -221,7 +197,7 @@ let adlist = {
       description: "ポップアップダイアログをOreUI風にします",
       type: ["リソースパック"],
       junban: 33,
-      icon_url: "https://github.com/YuuhaLand/OreUI-Popup/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/OreUI-Popup/refs/heads/main/pack_icon.png",
       link: "https://github.com/YuuhaLand/OreUI-Popup/releases/latest"
     },
     {
@@ -229,7 +205,7 @@ let adlist = {
       description: "HUDのチャットにアニメーションを追加します！",
       type: ["リソースパック"],
       junban: 34,
-      icon_url: "https://github.com/YuuhaLand/BetterChatAnimation/blob/main/pack_icon.png?raw=true",
+      icon_url: "https://raw.githubusercontent.com/YuuhaLand/BetterChatAnimation/refs/heads/main/pack_icon.png",
       link: "./chat_animation.html"
     },
   ]
